@@ -3,10 +3,8 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
 
-    background-color: #808080;
-    background-image: url("../images/Trame%20de%20fond.jpg");
+    background: url("../images/background.jpg") no-repeat;
     background-size: cover;
-    background-repeat: no-repeat;
 
 }
 
