@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wwwlardoisiennefrApp', [
+angular.module('lardoisienneApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',

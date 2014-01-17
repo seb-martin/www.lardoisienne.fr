@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('wwwlardoisiennefrApp')
+angular.module('lardoisienneApp')
   .controller('MainCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

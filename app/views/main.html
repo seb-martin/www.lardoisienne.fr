@@ -1,36 +1,156 @@
+
+<!--<div class="logo header"></div>-->
+
+<!--
+<nav class="navbar navbar-inverse header" role="navigation">
+    <div class="navbar-header">
+        <a href="#" class="navbar-brand">
+            <span class="logo"></span>
+        </a>
+    </div>
+
+    <ul class="nav navbar-nav pull-right">
+        <li class="active"><a ng-href="#">Accueil</a></li>
+        <li><a ng-href="#">Galerie</a></li>
+        <li><a ng-href="#">Contact</a></li>
+    </ul>
+</nav>
+-->
+
 <div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#">About</a></li>
-    <li><a ng-href="#">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">www lardoisienne fr</h3>
+
+    <ul class="nav nav-pills pull-right">
+        <li class="active"><a ng-href="#">Accueil</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">Galerie <span class="caret"></span> </a>
+            <ul class="dropdown-menu">
+                <li><a href="#">Ardoises</a></li>
+                <li><a href="#">Chevalets</a></li>
+                <li><a href="#">Customisation & Vitrines</a></li>
+            </ul>
+        </li>
+        <li><a ng-href="#">Contact</a></li>
+    </ul>
+    <div>
+        <img src="images/logo_lardoisienne_inverse_def.png" alt="L'Ardoisienne"/>
+        <span class="logo"></span>
+    </div>
 </div>
 
+
 <div class="jumbotron">
-  <h1>'Allo, 'Allo!</h1>
-  <p class="lead">
-    <img src="images/yeoman.png" alt="I'm Yeoman"><br>
-    Always a pleasure scaffolding your apps.
-  </p>
-  <p><a class="btn btn-lg btn-success" ng-href="#">Splendid!</a></p>
+    <p class="lead">
+        <img src="images/main.png" alt="I'm Yeoman"><br>
+    </p>
+
+    <h3> Spécialisée dans la fabrication</h3>
+
+    <h1>d'ardoises</h1>
+
+    <h2>personnalisées</h2>
+
+<!--
+    <br>
+
+    <p><a class="btn btn-lg btn-success" ng-href="#">Télécharger <br/> notre plaquette !</a></p>
+-->
 </div>
 
 <div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
+    <p>
+        Dans votre établissement, l'aménagement, le mobilier, le décor ont été étudiés
+        pour satisfaire aux demandes d’une clientèle choisie.
+    </p>
 
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
+
+    <p class="lead"><span class="label label-orange">Qu'en est-il de la présentation de vos consommations et plats ?</span></p>
+
+    <p>
+        Votre ardoise ne doit plus être
+        affichée uniquement pour
+        satisfaire à la loi, mais devenir
+        un accessoire essentiel du décor, un
+        objet d'appel, faire partie intégrante
+        de l'atmosphère du bar et de la salle.
+
+    </p>
+    <p>
+        Séduits par votre ardoise, vos clients
+        prendront plaisir à la lire puis à
+        commander. Sa calligraphie, son
+        format, son encadrement et ses
+        ornements sont autant d'éléments
+        qui valoriseront le lieu, animeront
+        l'ambiance et aideront au service.
+    </p>
+
+    <p class="lead"><span class="label label-blue">Votre ardoise sera la première ambassadrice de la cuisine et du bar.</span> </p>
+
+    <p>
+        Spécialisée dans la fabrication
+        d'ardoises sur-mesure,
+        L'ARDOISIENNE vous conseille
+        pour que celles-ci soient à l'image de
+        votre établissement et valorisent sa
+        décoration. Pour toute étude, n'hésitez
+        pas, sans engagement de votre part,
+        à nous demander un rendez-vous.
+    </p>
+
+</div>
+
+<div class="row marketing" >
+    <button ng-click="fullmarketing = !fullmarketing" class="btn btn-blue" ng-hide="fullmarketing">En savoir plus ...</button>
+
+    <a href="#" class="btn btn-green pull-right">Télécharger notre plaquette</a>
+</div>
+
+<div class="row marketing" ng-show="fullmarketing">
+    <p>
+        L'ardoise est traditionnellement le support de communication principal de tout établissement CHR
+        (café, hôtel, restaurant). On y affiche la liste des consommations, plats et boissons,
+        ainsi que  les volumes et  prix.
+    </p>
+    <p>
+        En plus de satisfaire à la communication de votre établissement et aux obligations légales d’affichage,
+        l'ardoise devient par son attrait  un élément central de votre décoration tant intérieure qu'extérieure.
+    </p>
+    <p>
+        Une ardoise lisible et harmonieuse induira un à priori favorable sur la parfaite qualité de vos menus
+        comme sur le service offert aux clients.
+    </p>
+    <p>
+        Sa calligraphie, son encadrement, ses ornements et incrustations sont autant d'éléments qui valoriseront
+        le lieu, animeront l’ambiance et aideront au service.
+    </p>
+    <p>
+        Spécialisée dans la réalisation d'ardoises sur-mesure,
+        L'Ardoisienne vous conseille pour que celles-ci soient à l'image de votre établissement et
+        valorisent sa décoration.
+    </p>
+    <p>
+        Nos ardoises sont entièrement  exécutées à la main et peuvent être modifiées régulièrement à la demande
+        (changement de menus, prix…) dans le cadre de notre contrat de maintenance.
+    </p>
+    <p>
+        Pour une utilisation étendue et une plus grande flexibilité nous pouvons également intégrer des zones
+        inscriptibles (pour le plat du jour ou les changements de prix fréquent…).
+    </p>
+
+
+</div>
+
+<div class="row marketing" ng-show="fullmarketing">
+    <button class="btn btn-blue">Voir la galerie</button>
+
+    <a href="#" class="btn btn-green pull-right">Nous contacter</a>
+
 </div>
 
 <div class="footer">
-  <p>♥ from the Yeoman team</p>
+  <p style="text-align: center">
+      L'Ardoisienne - 22 rue Charles Schmidt- 93400 Saint-Ouen<br/>
+      tél. 09 51 74 76 67 - mob. 06 22 20 11 03 - info@lardoisienne.fr
+  </p>
 </div>
