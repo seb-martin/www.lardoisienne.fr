@@ -1,13 +1,4 @@
 
-/*
-SPECIALISATION BOOTSTRAP
-
-Surcharge CSS des balises et classes
-pour spécialiser le thème par défaut de Bootstrap
-aux couleurs de www.lardoisienne.fr
-
-*/
-
 
 /*
 Surcharge des balises
@@ -28,27 +19,31 @@ body {
 }
 
 
-/* Custom page header */
-.header {
-  /*border-bottom: 1px solid #EE1D23;*/
+/* Anchor */
 
+a {
+    color: #f7931d;
+    text-decoration: none;
 }
-/* Make the masthead heading the same height as the navigation */
+
+a:hover,
+a:focus {
+    color: #a3531b;
+    text-decoration: underline;
+}
+
+
+
 /*
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-}
+SPECIALISATION BOOTSTRAP
+
+Surcharge CSS des balises et classes
+pour spécialiser le thème par défaut de Bootstrap
+aux couleurs de www.lardoisienne.fr
+
 */
 
-/* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
+
 
 /* Customize container */
 @media (min-width: 768px) {
@@ -77,18 +72,6 @@ body {
 .jumbotron .btn {
   font-size: 21px;
   padding: 14px 24px;
-}
-
-/* Anchor */
-a {
-    color: #f7931d;
-    text-decoration: none;
-}
-
-a:hover,
-a:focus {
-    color: #a3531b;
-    text-decoration: underline;
 }
 
 
@@ -126,7 +109,7 @@ a:focus {
 .nav-pills > li > a:focus {
     background-color: transparent;
     border: 1px solid #f7931d;
-    /*border: 1px solid #EE1D23;*/
+    cursor: pointer;
 }
 
 .nav-pills .open > a,
@@ -154,7 +137,7 @@ a:focus {
 
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
-    color: #f7931d/*262626*/;
+    color: #f7931d;
     background-color: #f5f5f5;
 }
 
@@ -209,7 +192,7 @@ créer des composants spécifiques à www.lardoisienne.fr.
 
 .marketing .btn {
     font-size: 21px;
-    padding: 14px 24px;
+    padding: 10px 20px;
 }
 
 
@@ -394,25 +377,50 @@ fieldset[disabled] .btn-orange.active {
     background-color: #3f3f3f;
 }
 
+/* Custom page header */
+.header {
+    /*border-bottom: 1px solid #EE1D23;*/
+
+}
+/* Make the masthead heading the same height as the navigation */
+/*
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+*/
+
+/* Custom page footer */
+.footer {
+    padding-top: 19px;
+    color: #777;
+    border-top: 1px solid #e5e5e5;
+}
 
 
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-  /* Remove the bottom border on the jumbotron for visual effect */
+    /* Remove the padding we set earlier */
 /*
-  .jumbotron {
-    border-bottom: 0;
-  }
+    .header,
+    .marketing,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+*/
+    /* Space out the masthead */
+/*
+    .header {
+        margin-bottom: 30px;
+    }
+*/
+     /*Remove the bottom border on the jumbotron for visual effect */
+/*
+    .jumbotron {
+        border-bottom: 0;
+    }
 */
 }

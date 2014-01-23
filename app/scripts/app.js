@@ -12,7 +12,12 @@ angular.module('lardoisienneApp', [
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+            controller: 'MenuCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
-  });
+  })
+;

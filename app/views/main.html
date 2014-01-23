@@ -17,25 +17,6 @@
 </nav>
 -->
 
-<div class="header">
-
-    <ul class="nav nav-pills pull-right">
-        <li class="active"><a ng-href="#">Accueil</a></li>
-        <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown">Galerie <span class="caret"></span> </a>
-            <ul class="dropdown-menu">
-                <li><a href="#">Ardoises</a></li>
-                <li><a href="#">Chevalets</a></li>
-                <li><a href="#">Customisation & Vitrines</a></li>
-            </ul>
-        </li>
-        <li><a ng-href="#">Contact</a></li>
-    </ul>
-    <div>
-        <img src="images/logo_lardoisienne_inverse_def.png" alt="L'Ardoisienne"/>
-        <span class="logo"></span>
-    </div>
-</div>
 
 
 <div class="jumbotron">
@@ -43,10 +24,8 @@
         <img src="images/main.png" alt="I'm Yeoman"><br>
     </p>
 
-    <h3> Spécialisée dans la fabrication</h3>
-
+    <h3>Spécialisée dans la fabrication</h3>
     <h1>d'ardoises</h1>
-
     <h2>personnalisées</h2>
 
 <!--
@@ -58,13 +37,13 @@
 
 <div class="row marketing">
 
-    <p>
+    <p class="lead">
         Dans votre établissement, l'aménagement, le mobilier, le décor ont été étudiés
         pour satisfaire aux demandes d’une clientèle choisie.
     </p>
 
 
-    <p class="lead"><span class="label label-orange">Qu'en est-il de la présentation de vos consommations et plats ?</span></p>
+    <p class="lead"><span class="label ard-orange-label">Qu'en est-il de la présentation de vos consommations et plats ?</span></p>
 
     <p>
         Votre ardoise ne doit plus être
@@ -85,7 +64,7 @@
         l'ambiance et aideront au service.
     </p>
 
-    <p class="lead"><span class="label label-blue">Votre ardoise sera la première ambassadrice de la cuisine et du bar.</span> </p>
+    <p class="lead"><span class="label ard-blue-label">Votre ardoise sera la première ambassadrice de la cuisine et du bar.</span> </p>
 
     <p>
         Spécialisée dans la fabrication
@@ -101,9 +80,9 @@
 </div>
 
 <div class="row marketing" >
-    <button ng-click="fullmarketing = !fullmarketing" class="btn btn-blue" ng-hide="fullmarketing">En savoir plus ...</button>
+    <button ng-click="fullmarketing = !fullmarketing" class="btn ard-blue-button" ng-hide="fullmarketing">En savoir plus ...</button>
 
-    <a href="#" class="btn btn-green pull-right">Télécharger notre plaquette</a>
+    <a href="#" class="btn ard-green-button pull-right">Nous contacter</a>
 </div>
 
 <div class="row marketing" ng-show="fullmarketing">
@@ -142,15 +121,9 @@
 </div>
 
 <div class="row marketing" ng-show="fullmarketing">
-    <button class="btn btn-blue">Voir la galerie</button>
+    <button class="btn ard-blue-button">Voir la galerie</button>
 
-    <a href="#" class="btn btn-green pull-right">Nous contacter</a>
+    <a href="#" class="btn ard-orange-button pull-right">Télécharger notre plaquette</a>
 
 </div>
 
-<div class="footer">
-  <p style="text-align: center">
-      L'Ardoisienne - 22 rue Charles Schmidt- 93400 Saint-Ouen<br/>
-      tél. 09 51 74 76 67 - mob. 06 22 20 11 03 - info@lardoisienne.fr
-  </p>
-</div>

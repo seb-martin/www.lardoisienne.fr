@@ -1,0 +1,23 @@
+<div class="header">
+    <ul class="nav nav-pills pull-right">
+        <li ng-class="{active: isActive('/')}"><a ng-href="#/">Accueil</a></li>
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown">Galerie<span class="caret"></span> </a>
+            <ul class="dropdown-menu">
+                <li ng-class="{active: data.menu.galerie.menu.ardoises.active}">
+                    <a href="#">Ardoises</a>
+                </li>
+                <li ng-class="{active: data.menu.galerie.menu.chevalets.active}">
+                    <a href="#">Chevalets</a>
+                </li>
+                <li ng-class="{active: data.menu.galerie.menu.personnalisations.active}">
+                    <a href="#">Customisation & Vitrines</a>
+                </li>
+            </ul>
+        </li>
+        <li ng-class="{active: isActive('/contact')}"><a ng-href="#/contact">Contact</a></li>
+    </ul>
+    <div>
+        <img ng-src="images/logo_lardoisienne_inverse_def.png" alt="L'Ardoisienne"/>
+    </div>
+</div>

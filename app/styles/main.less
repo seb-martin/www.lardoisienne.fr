@@ -1,0 +1,344 @@
+
+/*
+CONSTANTES
+*/
+@ard-gris1: #f5f5f5;
+@ard-gris2: #e5e5e5;
+@ard-gris3: #d8d8d8;
+@ard-gris4: #999999;
+@ard-gris5: #777;
+@ard-gris6: #3f3f3f;
+
+@ard-rouge: #EE1D23;
+
+@ard-orange1: #f7931d;
+@ard-orange2: #a3531b;
+@ard-orange3: #6a3515;
+
+@ard-vert1: #8bc63e;
+@ard-vert2: #618c2d;
+@ard-vert3: #3f5d20;
+
+@ard-bleu1: #00aaad;
+@ard-bleu2: #008487;
+@ard-bleu3: #00696c;
+
+
+/*
+TAGS : Surcharge des balises
+*/
+
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  /* Background */
+  background: url(../background.png) no-repeat;
+  background-size: cover;
+
+  font-size: 14px;
+  color: @ard-gris3;
+
+}
+
+
+a {
+  color: @ard-orange1;
+  text-decoration: none;
+  &:hover, &:focus {
+    color: @ard-orange2;
+    text-decoration: underline;
+  }
+}
+
+
+/*
+SPECIALISATION BOOTSTRAP
+
+Surcharge CSS des balises et classes
+pour spécialiser le thème par défaut de Bootstrap
+aux couleurs de www.lardoisienne.fr
+
+*/
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+
+
+.jumbotron{
+  text-align: center;
+  border: 1px solid @ard-rouge;
+  background-color: transparent;
+
+  h1, h2 {
+    color: @ard-rouge;
+  }
+
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* .nav */
+
+.nav {
+  & > li.disabled {
+    & > a, & > a:hover, & > a:focus{
+      color: @ard-gris4;
+    }
+  }
+
+  & .nav-divider{
+    background-color: @ard-gris2;
+  }
+}
+
+/* .nav-pills */
+.nav-pills {
+  & > li {
+    & > a {
+      color: @ard-gris3;
+      border: 1px solid transparent;
+
+      &:hover, &:focus {
+        background-color: transparent;
+        border: 1px solid @ard-orange1;
+        cursor: pointer;
+      }
+    }
+
+    &.active > a {
+      &, &:hover, &:focus {
+        background-color: transparent;
+        border: 1px solid @ard-rouge;
+      }
+    }
+
+    & > .badge {
+      color: @ard-orange1;
+      background-color: @ard-gris3;
+    }
+
+  }
+
+  & .open > a {
+    &, &:hover, &:focus {
+      color: @ard-orange1;
+      background-color: transparent;
+      border-color: @ard-orange1;
+    }
+  }
+
+
+}
+
+
+/* .dropdown-menu*/
+
+.dropdown-menu {
+
+  & > li > a {
+    &:hover,
+    &:focus {
+      color: @ard-orange1;
+      background-color: @ard-gris1;
+    }
+
+  }
+
+  & > .active > a {
+    &, &:hover, &:focus {
+      color: @ard-gris3;
+      background-color: @ard-orange1;
+    }
+  }
+
+  & > .disabled > a {
+    &, &:hover, &:focus {
+      color: @ard-gris4;
+    }
+  }
+
+}
+
+
+
+
+/*
+
+EXTENSION DE BOOTSTRAP
+
+Création d'id et de classes CSS
+pour étendre Bootstrap et
+créer des composants spécifiques à www.lardoisienne.fr.
+
+*/
+
+
+.ard-label(@color1, @color2){
+
+  background-color: @color1;
+
+  &[href]:hover,&[href]:focus {
+    background-color: @color2;
+
+  }
+
+}
+
+.ard-btn(@blanc, @noir, @color1, @color2, @color3){
+  color: @noir;
+  background-color: @color1;
+  border-color: @color2;
+
+  &:hover, &:focus, &:active, &.active, &.open.dropdown-toggle {
+    color: @blanc;
+    background-color: @color2;
+    border-color: @color3;
+  }
+
+  &:active, &.active, &.open.dropdown-toggle {
+    background-image: none;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] &,
+  &.disabled:hover,
+  &[disabled]:hover,
+  fieldset[disabled] &:hover,
+  &.disabled:focus,
+  &[disabled]:focus,
+  fieldset[disabled] &:focus,
+  &.disabled:active,
+  &[disabled]:active,
+  fieldset[disabled] &:active,
+  &.disabled.active,
+  &[disabled].active,
+  fieldset[disabled] &.active {
+    background-color: @color1;
+    border-color: @color2;
+  }
+
+  &.badge {
+    color: @color1;
+    background-color: @noir;
+  }
+}
+
+
+.ard-blue-label{
+  .ard-label(@ard-bleu1, @ard-bleu2)
+}
+
+.ard-blue-button {
+  .ard-btn(@ard-gris3, @ard-gris6, @ard-bleu1, @ard-bleu2, @ard-bleu3);
+}
+
+
+
+.ard-green-label{
+  .ard-label(@ard-vert1, @ard-vert2)
+}
+
+.ard-green-button {
+  .ard-btn(@ard-gris3, @ard-gris6, @ard-vert1, @ard-vert2, @ard-vert3);
+}
+
+.ard-orange-label{
+  .ard-label(@ard-orange1, @ard-orange2)
+}
+
+.ard-orange-button {
+  .ard-btn(@ard-gris3, @ard-gris6, @ard-orange1, @ard-orange2, @ard-orange3);
+}
+
+/* Custom page header */
+.header {
+  /*border-bottom: 1px solid #EE1D23;*/
+
+}
+
+
+/* Make the masthead heading the same height as the navigation */
+/*
+.header h3 {
+  margin-top: 0;
+  margin-bottom: 0;
+  line-height: 40px;
+  padding-bottom: 19px;
+}
+*/
+
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: @ard-gris5;
+  border-top: 1px solid @ard-gris2;
+
+  & > p {
+    text-align: center;
+  }
+
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+
+  & p + h4 {
+    margin-top: 28px;
+  }
+
+  & .btn {
+    font-size: 21px;
+    padding: 10px 20px;
+  }
+}
+
+
+
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  /* Space out the masthead */
+/*
+  .header {
+    margin-bottom: 30px;
+    padding-left: 0;
+    padding-right: 0;
+  }
+*/
+
+  /* Remove the padding we set earlier */
+/*
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+*/
+
+  /* Remove the bottom border on the jumbotron for visual effect */
+/*
+  .jumbotron {
+    border-bottom: 0;
+  }
+*/
+}
+
+
+
+
+

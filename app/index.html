@@ -6,8 +6,8 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title></title>
-    <meta name="description" content="">
+    <title>L'Ardoisienne</title>
+    <meta name="description" content="Spécialisée dans la fabrication d'ardoises personnalisées">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
@@ -16,7 +16,9 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <!--<link rel="stylesheet" href="styles/main.css">-->
+    <!--<link rel="stylesheet" href="styles/main2.css">-->
+    <link rel="stylesheet/less" type="text/css" href="styles/main.less" />
     <!-- endbuild -->
 
   </head>
@@ -25,17 +27,38 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <!-- Add your site or application content here -->
-    <div class="container" ng-view=""></div>
+
+    <div class="container">
+
+        <div menu></div>
+
+        <!-- Add your site or application content here -->
+        <div ng-view=""></div>
+
+        <div class="footer">
+            <p>
+                L'Ardoisienne - 22 rue Charles Schmidt- 93400 Saint-Ouen<br/>
+                tél. 09 51 74 76 67 - mob. 06 22 20 11 03 - info@lardoisienne.fr
+            </p>
+        </div>
+
+
+    </div>
+
+
+
+
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+    <!-- TODO Contrôler Google Analytics ID UA-23836216-1 extrait du précédent site  -->
      <script>
        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
+       ga('create', 'UA-23836216-1');
        ga('send', 'pageview');
     </script>
 
@@ -53,12 +76,14 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
+    <script src="bower_components/less.js/dist/less-1.6.1.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/components/menu/menu.js"></script>
         <!-- endbuild -->
 </body>
 </html>
