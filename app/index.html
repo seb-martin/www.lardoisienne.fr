@@ -17,20 +17,22 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <!--<link rel="stylesheet" href="styles/main.css">-->
-    <!--<link rel="stylesheet" href="styles/main2.css">-->
     <link rel="stylesheet/less" type="text/css" href="styles/main.less" />
     <!-- endbuild -->
 
   </head>
   <body ng-app="lardoisienneApp">
     <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <p class="browsehappy">Vous utilisez un navigateur <strong>périmé</strong>. SVP <a href="http://browsehappy.com/">mettez à jour votre navigateur</a> pour améliorer votre expérience.</p>
     <![endif]-->
 
 
     <div class="container">
 
-        <div menu></div>
+        <div class="header">
+            <div menu></div>
+        </div>
+
 
         <!-- Add your site or application content here -->
         <div ng-view=""></div>
@@ -76,7 +78,7 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/less.js/dist/less-1.6.1.js"></script>
+    <script src="bower_components/less.js/dist/less-1.5.0.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

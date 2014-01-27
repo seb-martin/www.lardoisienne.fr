@@ -1,6 +1,6 @@
 
 /*
-CONSTANTES
+Variables
 */
 @ard-gris1: #f5f5f5;
 @ard-gris2: #e5e5e5;
@@ -22,6 +22,18 @@ CONSTANTES
 @ard-bleu1: #00aaad;
 @ard-bleu2: #008487;
 @ard-bleu3: #00696c;
+
+
+
+/*
+Mixins
+*/
+
+.bordered-box (@border-width: 1px, @border-style:solid, @border-color: @ard-rouge, @border-radius: 6px, @padding: 12px){
+  border: @border-width @border-style @border-color;
+  border-radius: @border-radius;
+  padding: @padding;
+}
 
 
 /*
@@ -51,6 +63,9 @@ a {
   }
 }
 
+address {
+  .bordered-box();
+}
 
 /*
 SPECIALISATION BOOTSTRAP
@@ -283,6 +298,7 @@ créer des composants spécifiques à www.lardoisienne.fr.
 
 /* Custom page footer */
 .footer {
+  margin-top: 19px;
   padding-top: 19px;
   color: @ard-gris5;
   border-top: 1px solid @ard-gris2;
