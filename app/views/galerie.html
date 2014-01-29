@@ -1,0 +1,36 @@
+<div class="">
+
+    <div ng-hide="galerie" class="jumbotron">
+        <h2>Aucun cliché :'(</h2>
+        <p>Aucun cliché disponible dans la galerie de ce thème.</p>
+    </div>
+
+    <div ng-show="galerie" id="carousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li ng-repeat="cliche in  galerie" data-target="#carousel" data-slide-to="{{$index}}" ng-class="{active: $index === 0}" id="indicator{{$index}}"></li>
+        </ol>
+
+        <!-- Wrapper for slides-->
+        <div class="carousel-inner">
+            <div ng-repeat="cliche in  galerie" class="item" ng-class="{active: $index === 0}" id="slide{{$index}}">
+                <img ng-src="{{cliche.imgsrc}}" alt="{{cliche.title}}"/>
+
+                <div class="carousel-caption">
+                    <h1>{{cliche.titre}}</h1>
+
+                    <h3>{{cliche.description}}</h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" data-slide="prev" id="previousCmd" ng-click="previousSlide()">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" data-slide="next" id="nextCmd" ng-click="nextSlide()">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+
+    </div>
+</div>

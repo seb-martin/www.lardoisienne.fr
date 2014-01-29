@@ -187,6 +187,31 @@ aux couleurs de www.lardoisienne.fr
 }
 
 
+.carousel{
+  .bordered-box();
+  // Ajuste le padding
+  padding: 3px;
+
+  & > .carousel-inner > .item {
+    & > img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    & > .carousel-caption {
+      & > h1, & > h2, & > h3 {
+        color: @ard-orange1;
+      }
+    }
+  }
+
+  & > .carousel-inner > .item > img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}
+
 
 
 /*
@@ -281,6 +306,7 @@ créer des composants spécifiques à www.lardoisienne.fr.
 /* Custom page header */
 .header {
   /*border-bottom: 1px solid #EE1D23;*/
+  padding-bottom: 19px;
 
 }
 

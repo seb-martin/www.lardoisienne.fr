@@ -1,0 +1,28 @@
+{
+    "ardoises": [
+        {
+            "titre": "Chez Janou",
+            "description": "Ardoise suspendue",
+            "imgsrc": "./medias/galerie/ardoises/janou_002.jpg"
+        },
+        {
+            "titre": "Zaza Bar",
+            "description": "Happy Hour !",
+            "imgsrc": "./medias/galerie/ardoises/zaza_bar_happy.jpg"
+        }
+    ],
+    "chevalets": [
+        {
+            "titre": "L'Artiste",
+            "description": "Chevalet sans pied",
+            "imgsrc": "./medias/galerie/chevalets/artiste_001.JPG"
+        }
+    ],
+    "customisations": [
+        {
+            "titre": "Le Caribou",
+            "description": "Fresque",
+            "imgsrc": "./medias/galerie/customisations/marquage-fresque_caribou_001.JPG"
+        }
+    ]
+}

@@ -14,6 +14,10 @@ angular.module('lardoisienneApp')
                     return viewLocation === $location.path();
                 };
 
+                scope.isMenuActive = function(viewLocationBase) {
+                    return $location.path().indexOf(viewLocationBase) === 0;
+                };
+
             }
         };
     }])
