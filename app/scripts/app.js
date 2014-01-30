@@ -6,6 +6,10 @@ angular.module('lardoisienneApp', [
         'ngSanitize',
         'ngRoute'
     ])
+    .config(['$sceDelegateProvider', function($sceDelegateProvider) {
+        $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://www.lardoisienne.fr/**']);
+
+    }])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {

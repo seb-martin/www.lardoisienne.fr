@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" ng-controller="ContactCtrl">
 
     <div class="row">
         <div class="col-xs-6">
@@ -46,24 +46,36 @@
             <section id="message">
                 <h2><i class="glyphicon glyphicon-send"></i> Une info ?</h2>
 
-                <form role="form">
+
+                <form role="form" ng-submit="envoyer()">
                     <div class="form-group">
                         <label for="raisonSocialeInput">Raison Sociale</label>
-                        <input type="text" class="form-control" id="raisonSocialeInput" required="true"/>
+                        <input type="text" class="form-control" id="raisonSocialeInput"
+                               ng-model="data.rs" autofocus="true" placeholder="L'Exemple" required="required"/>
                     </div>
                     <div class="form-group">
                         <label for="emailInput">Email</label>
-                        <input type="email" class="form-control" id="emailInput" required="true"/>
+                        <input type="email" class="form-control" id="emailInput"
+                               ng-model="data.from" placeholder="quisuisje@lexemple.fr" required="required"/>
                     </div>
                     <div class="form-group">
                         <label for="telInput">Téléphone</label>
-                        <input type="text" class="form-control" id="telInput"/>
+                        <input type="text" class="form-control" id="telInput"
+                               ng-model="data.tel" placeholder="01 23 45 67 89"/>
                     </div>
                     <div class="form-group">
                         <label for="msgInput">Message</label>
-                        <textarea class="form-control" id="msgInput"></textarea>
+                        <textarea class="form-control" id="msgInput"
+                                  ng-model="data.message" placeholder="Objet du message ..." required="required"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-default pull-right">Envoyer</button>
+                    <div class="alert alert-{{reponse.severite}}" ng-show="reponse">
+
+                        <button type="button" class="close" ng-click="reponse = undefined;">&times;</button>
+                        {{reponse.message}}
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-default pull-right">Envoyer</button>
+                    </div>
                 </form>
             </section>
         </div>
