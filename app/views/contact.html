@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-xs-6">
             <section id="atelier-contact">
-                <h2><i class="glyphicon glyphicon-home"></i> Siège</h2>
+                <h2 class="ard-color-blue1"><i class="glyphicon glyphicon-home"></i> Siège</h2>
                 <address>
                     22 rue Charles Schmidt<br>
                     93400 Saint-Ouin<br>
@@ -35,7 +35,7 @@
         </div>
         <div class="col-xs-6">
             <section id="morgane-contact">
-                <h2><i class="glyphicon glyphicon-user"></i> Morgane</h2>
+                <h2 class="ard-color-green1"><i class="glyphicon glyphicon-user"></i> Morgane</h2>
                 <address>
                     <i class="glyphicon glyphicon-phone"></i> 06 22 20 11 03<br>
                     <i class="glyphicon glyphicon-envelope"></i> <a href="mailto:morgane@lardoisienne.fr">morgane@lardoisienne.fr</a>
@@ -44,17 +44,17 @@
             </section>
 
             <section id="message">
-                <h2><i class="glyphicon glyphicon-send"></i> Une info ?</h2>
+                <h2 class="ard-color-orange1"><i class="glyphicon glyphicon-send"></i> Une info ?</h2>
 
 
                 <form role="form" ng-submit="envoyer()">
                     <div class="form-group">
-                        <label for="raisonSocialeInput">Raison Sociale</label>
+                        <label for="raisonSocialeInput">Raison Sociale <i class="glyphicon glyphicon-asterisk"></i></label>
                         <input type="text" class="form-control" id="raisonSocialeInput"
                                ng-model="data.rs" autofocus="true" placeholder="L'Exemple" required="required"/>
                     </div>
                     <div class="form-group">
-                        <label for="emailInput">Email</label>
+                        <label for="emailInput">Email <i class="glyphicon glyphicon-asterisk"></i></label>
                         <input type="email" class="form-control" id="emailInput"
                                ng-model="data.from" placeholder="quisuisje@lexemple.fr" required="required"/>
                     </div>
@@ -64,7 +64,7 @@
                                ng-model="data.tel" placeholder="01 23 45 67 89"/>
                     </div>
                     <div class="form-group">
-                        <label for="msgInput">Message</label>
+                        <label for="msgInput">Message <i class="glyphicon glyphicon-asterisk"></i></label>
                         <textarea class="form-control" id="msgInput"
                                   ng-model="data.message" placeholder="Objet du message ..." required="required"></textarea>
                     </div>

@@ -18,8 +18,6 @@ angular.module('lardoisienneApp')
 
             $http({method: 'POST', url: sendMailUrl, data: xsrf, headers: headers})/*.post(sendMailUrl, data*//*, config*//*)*/
                 .success(function(data/*, status, headers, config*/) {
-
-
                     deferred.resolve({ severite: 'success', message: data });
                 })
                 .error(function(data, status, headers, config) {
@@ -35,4 +33,48 @@ angular.module('lardoisienneApp')
             return deferred.promise;
         };
 
-    });
+    })
+    .factory('GalerieService', function($q, $http, galerieMapUrl) {
+        var cachedPromiseGalerie;
+
+        var loadGalerie = function() {
+
+            var deferred = $q.defer();
+
+            $http.get(galerieMapUrl)
+                .success(function(galerie/*, status, headers, config*/) {
+                    deferred.resolve(galerie);
+                })
+                .error(function(data, status/*, headers, config*/) {
+                    console.log('Echec chargement galerie: ' + status + ' - ' + data);
+
+                    deferred.reject('Echec chargement galerie: ' + status + ' - ' + data);
+                });
+
+            return deferred.promise;
+        };
+
+        var filtreParTheme = function(galerie, theme) {
+            var result = undefined;
+            if(theme && galerie[theme]) {
+                result = galerie[theme];
+            } else {
+                // Toute la galerie
+                result = [];
+                angular.forEach(galerie, function (clichesTheme/*, key*/) {
+                    result.push(clichesTheme);
+                });
+            }
+            return result;
+        };
+
+        return function(theme) {
+            if(!cachedPromiseGalerie) {
+                cachedPromiseGalerie = loadGalerie();
+            }
+            return cachedPromiseGalerie.then(function(galerie) {
+                return filtreParTheme(galerie, theme)
+            });
+        };
+    })
+;

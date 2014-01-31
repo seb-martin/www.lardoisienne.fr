@@ -6,9 +6,9 @@ angular.module('lardoisienneApp', [
         'ngSanitize',
         'ngRoute'
     ])
+    .constant('galerieMapUrl', './medias/galerie/galerie-map.json')
     .config(['$sceDelegateProvider', function($sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://www.lardoisienne.fr/**']);
-
     }])
     .config(function ($routeProvider) {
         $routeProvider
