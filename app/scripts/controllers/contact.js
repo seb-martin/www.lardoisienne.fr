@@ -6,7 +6,7 @@ angular.module('lardoisienneApp')
         $scope.reponse = undefined;
 
         $scope.envoyer = function() {
-            SendMailService($scope.data).then(
+            new SendMailService($scope.data).then(
                 function(reponse) {
                     $scope.reponse = reponse;
                 },

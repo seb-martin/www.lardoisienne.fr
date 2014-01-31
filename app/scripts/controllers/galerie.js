@@ -6,7 +6,7 @@ angular.module('lardoisienneApp').controller(
 
         var selectTheme = function(theme){
             $scope.theme = theme;
-            GalerieService(theme).then(
+            new GalerieService(theme).then(
                 function(galerie) {
                     $scope.galerie = galerie;
                 }

@@ -1,3 +1,4 @@
+/*global $:false */ /*http://stackoverflow.com/questions/8852765/jshint-strict-mode-and-jquery-is-not-defined*/
 'use strict';
 
 angular.module('lardoisienneApp')
@@ -20,7 +21,7 @@ angular.module('lardoisienneApp')
                 .success(function(data/*, status, headers, config*/) {
                     deferred.resolve({ severite: 'success', message: data });
                 })
-                .error(function(data, status, headers, config) {
+                .error(function(data, status/*, headers, config*/) {
                     if(status === 400) { // Bad Request
                         deferred.reject({ severite: 'warning', message: data });
                     } else {
@@ -55,7 +56,7 @@ angular.module('lardoisienneApp')
         };
 
         var filtreParTheme = function(galerie, theme) {
-            var result = undefined;
+            var result;
             if(theme && galerie[theme]) {
                 result = galerie[theme];
             } else {
@@ -73,7 +74,7 @@ angular.module('lardoisienneApp')
                 cachedPromiseGalerie = loadGalerie();
             }
             return cachedPromiseGalerie.then(function(galerie) {
-                return filtreParTheme(galerie, theme)
+                return filtreParTheme(galerie, theme);
             });
         };
     })
