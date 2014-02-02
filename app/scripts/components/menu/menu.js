@@ -6,7 +6,7 @@ angular.module('lardoisienneApp')
 
         return {
             restrict: 'A',
-            templateUrl: 'scripts/components/menu/menu.html',
+            templateUrl: 'views/components/menu.html',
             replace: true,
             link: function(scope) {
 

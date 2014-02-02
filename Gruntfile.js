@@ -34,6 +34,14 @@ module.exports = function (grunt) {
                 files: {
                     'app/styles/main.css': '<%= yeoman.app %>/styles/main.less'
                 }
+            },
+            dist: {
+                options: {
+                    paths: ['<%= yeoman.app %>/styles']
+                },
+                files: {
+                    '.tmp/styles/main.css': '<%= yeoman.app %>/styles/main.less'
+                }
             }
         },
 
@@ -182,7 +190,7 @@ module.exports = function (grunt) {
         // concat, minify and revision files. Creates configurations in memory so
         // additional tasks can operate on them
         useminPrepare: {
-            html: '<%= yeoman.app %>/index.html',
+            html: '<%= yeoman.app %>/**/index.html',
             options: {
                 dest: '<%= yeoman.dist %>'
             }
@@ -190,7 +198,7 @@ module.exports = function (grunt) {
 
         // Performs rewrites based on rev and the useminPrepare configuration
         usemin: {
-            html: ['<%= yeoman.dist %>/{,*/}*.html'],
+            html: ['<%= yeoman.dist %>/{,*/,**/}*.html'],
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
             options: {
                 assetsDirs: ['<%= yeoman.dist %>']
@@ -276,10 +284,11 @@ module.exports = function (grunt) {
                             '*.{ico,png,txt}',
                             '.htaccess',
                             '*.html',
+                            'services/*.php',
                             'views/{,*/}*.html',
-                            'bower_components/**/*',
                             'images/{,*/}*.{webp}',
-                            'fonts/*'
+                            'fonts/*',
+                            'medias/**/*'
                         ]
                     },
                     {
@@ -356,7 +365,7 @@ module.exports = function (grunt) {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
 
-        grunt.task.run([
+        return grunt.task.run([
             'clean:server',
             'bower-install',
             'concurrent:server',
@@ -382,6 +391,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'bower-install',
+        'less:dist',
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',

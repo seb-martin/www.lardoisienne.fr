@@ -2,7 +2,7 @@
 
 angular.module('lardoisienneApp').controller(
     'GalerieCtrl',
-    function ($scope, $http, theme, GalerieService) {
+    ['$scope', '$http', 'theme', 'GalerieService', function ($scope, $http, theme, GalerieService) {
 
         var selectTheme = function(theme){
             $scope.theme = theme;
@@ -28,5 +28,5 @@ angular.module('lardoisienneApp').controller(
         // Initialisation
         selectTheme(theme);
 
-    }
+    } ]
 );

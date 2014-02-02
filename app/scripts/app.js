@@ -6,11 +6,14 @@ angular.module('lardoisienneApp', [
         'ngSanitize',
         'ngRoute'
     ])
+
     .constant('galerieMapUrl', './medias/galerie/galerie-map.json')
+
     .config(['$sceDelegateProvider', function($sceDelegateProvider) {
         $sceDelegateProvider.resourceUrlWhitelist(['self', 'http://www.lardoisienne.fr/**']);
     }])
-    .config(function ($routeProvider) {
+
+    .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/main.html',
@@ -52,5 +55,5 @@ angular.module('lardoisienneApp', [
             .otherwise({
                 redirectTo: '/'
             });
-    })
+    }])
 ;

@@ -2,7 +2,7 @@
 'use strict';
 
 angular.module('lardoisienneApp')
-    .factory('SendMailService', function($q, $http) {
+    .factory('SendMailService', ['$q', '$http', function($q, $http) {
 //        var sendMailUrl = 'http://www.lardoisienne.fr/seb/send_mail.php';
         // DID changer l'url pour ./services/send_mail.php
         var sendMailUrl = './services/send_mail.php';
@@ -34,8 +34,8 @@ angular.module('lardoisienneApp')
             return deferred.promise;
         };
 
-    })
-    .factory('GalerieService', function($q, $http, galerieMapUrl) {
+    }])
+    .factory('GalerieService', ['$q', '$http', 'galerieMapUrl', function($q, $http, galerieMapUrl) {
         var cachedPromiseGalerie;
 
         var loadGalerie = function() {
@@ -77,5 +77,5 @@ angular.module('lardoisienneApp')
                 return filtreParTheme(galerie, theme);
             });
         };
-    })
+    }])
 ;
