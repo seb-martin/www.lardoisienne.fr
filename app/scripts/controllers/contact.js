@@ -1,7 +1,15 @@
 'use strict';
 
 angular.module('lardoisienneApp')
-    .controller('ContactCtrl', ['$scope', 'SendMailService', function($scope, SendMailService) {
+    .controller('ContactCtrl', ['$scope', 'CloudData', 'SendMailService', function($scope, CloudData, SendMailService) {
+
+/*
+        var ref = new Firebase('https://lardoisienne.firebaseio.com/contact');
+        $scope.contactInfos = $firebase(ref);
+*/
+
+        $scope.contact = new CloudData('/contact');
+
         $scope.data = {};
         $scope.reponse = undefined;
 

@@ -37,19 +37,10 @@
         <!-- Add your site or application content here -->
         <div ng-view=""></div>
 
-        <div class="footer">
-            <p>
-                L'Ardoisienne - 22 rue Charles Schmidt- 93400 Saint-Ouen<br/>
-                tél. 09 51 74 76 67 - mob. 06 22 20 11 03 - info@lardoisienne.fr
-            </p>
-        </div>
+        <div class="footer"></div>
 
 
     </div>
-
-
-
-
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -78,14 +69,19 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/less.js/dist/less-1.5.0.js"></script>
+    <script src="bower_components/less.js/dist/less-1.6.2.js"></script>
+    <script src="bower_components/firebase/firebase.js"></script>
+    <script src="bower_components/angular-mocks/angular-mocks.js"></script>
+    <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
+    <script src="bower_components/angularfire/angularfire.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/services/services.js"></script>
-    <script src="scripts/components/menu/menu.js"></script>
+    <script src="scripts/components/components.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/galerie.js"></script>
     <script src="scripts/controllers/contact.js"></script>

@@ -1,7 +1,34 @@
-/*global $:false */ /*http://stackoverflow.com/questions/8852765/jshint-strict-mode-and-jquery-is-not-defined*/
+/*global $:false, Firebase:false */
+/*http://stackoverflow.com/questions/8852765/jshint-strict-mode-and-jquery-is-not-defined*/
 'use strict';
 
 angular.module('lardoisienneApp')
+    .factory('CloudData', ['$firebase', 'cloudDataLocation', function($firebase, cloudDataLocation) {
+
+        return function(query) {
+            var ref = new Firebase(cloudDataLocation + query);
+            return $firebase(ref);
+        };
+
+    }])
+    .factory('GalerieService', ['CloudData', function(CloudData) {
+        return function(theme) {
+            var result;
+            var query = '/galerie';
+            if(theme) {
+                query += '/' + theme;
+                result = new CloudData(query);
+            } else {
+                var galerie = new CloudData(query);
+                result = [];
+                angular.forEach(galerie, function (clichesTheme) {
+                    result.push(clichesTheme);
+                });
+            }
+
+            return result;
+        };
+    }])
     .factory('SendMailService', ['$q', '$http', function($q, $http) {
 //        var sendMailUrl = 'http://www.lardoisienne.fr/seb/send_mail.php';
         // DID changer l'url pour ./services/send_mail.php
@@ -34,48 +61,5 @@ angular.module('lardoisienneApp')
             return deferred.promise;
         };
 
-    }])
-    .factory('GalerieService', ['$q', '$http', 'galerieMapUrl', function($q, $http, galerieMapUrl) {
-        var cachedPromiseGalerie;
-
-        var loadGalerie = function() {
-
-            var deferred = $q.defer();
-
-            $http.get(galerieMapUrl)
-                .success(function(galerie/*, status, headers, config*/) {
-                    deferred.resolve(galerie);
-                })
-                .error(function(data, status/*, headers, config*/) {
-                    console.log('Echec chargement galerie: ' + status + ' - ' + data);
-
-                    deferred.reject('Echec chargement galerie: ' + status + ' - ' + data);
-                });
-
-            return deferred.promise;
-        };
-
-        var filtreParTheme = function(galerie, theme) {
-            var result;
-            if(theme && galerie[theme]) {
-                result = galerie[theme];
-            } else {
-                // Toute la galerie
-                result = [];
-                angular.forEach(galerie, function (clichesTheme/*, key*/) {
-                    result.push(clichesTheme);
-                });
-            }
-            return result;
-        };
-
-        return function(theme) {
-            if(!cachedPromiseGalerie) {
-                cachedPromiseGalerie = loadGalerie();
-            }
-            return cachedPromiseGalerie.then(function(galerie) {
-                return filtreParTheme(galerie, theme);
-            });
-        };
     }])
 ;

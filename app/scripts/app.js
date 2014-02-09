@@ -4,8 +4,11 @@ angular.module('lardoisienneApp', [
         'ngCookies',
         'ngResource',
         'ngSanitize',
-        'ngRoute'
+        'ngRoute',
+        'firebase'
     ])
+
+    .constant('cloudDataLocation', 'https://lardoisienne.firebaseio.com')
 
     .constant('galerieMapUrl', './medias/galerie/galerie-map.json')
 

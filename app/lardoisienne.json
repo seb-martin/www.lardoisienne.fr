@@ -1,0 +1,103 @@
+{
+    "header":{
+        "menu":[
+            {
+                "titre": "Accueil", "location":"/"
+            },
+            {
+
+                "titre": "Galerie", "location":"/galerie",
+                "menu":[
+                    {
+                        "titre":"Ardoises", "location":"/galerie/ardoises"
+                    },
+                    {
+                        "titre":"Chevalets", "location":"/galerie/chevalets"
+                    },
+                    {
+                        "titre":"Customisation & Vitrines", "location":"/galerie/customisations"
+                    }
+                ]
+            },
+            {
+                "titre": "Contact", "location":"/contact"
+            }
+        ]
+    },
+    "accueil": {},
+    "galerie": {
+        "ardoises": [
+            {
+                "titre": "Chez Janou",
+                "description": "Ardoise suspendue",
+                "imgsrc": "./medias/galerie/ardoises/janou_002.jpg"
+            },
+            {
+                "titre": "Zaza Bar",
+                "description": "Happy Hour !",
+                "imgsrc": "./medias/galerie/ardoises/zaza_bar_happy.jpg"
+            }
+        ],
+        "chevalets": [
+            {
+                "titre": "L'Artiste",
+                "description": "Chevalet sans pied",
+                "imgsrc": "./medias/galerie/chevalets/artiste_001.JPG"
+            }
+        ],
+        "customisations": [
+            {
+                "titre": "Le Caribou",
+                "description": "Fresque",
+                "imgsrc": "./medias/galerie/customisations/marquage-fresque_caribou_001.JPG"
+            }
+        ]
+    },
+    "contact": {
+        "atelier": {
+            "titre":"Atelier",
+            "adresse":["22 rue Charles Schmidt", "93400 Saint-Ouin"],
+            "coordonnees":{
+                "mail": "info@lardoisienne.fr",
+                "tel": "09 56 74 76 67",
+                "fax": "09 56 74 76 67"
+            },
+            "localisation": {
+                "geolocalisation-url": "https://mapsengine.google.com/map/edit?mid=zxks7r7C4S6s.kUUsXGhbii6U",
+                "transports":[
+                    {
+                        "type": "Metro",
+                        "ligne": "13",
+                        "station": "Garibaldi"
+                    },
+                    {
+                        "type": "Bus",
+                        "ligne": "85",
+                        "station": "Ernest Renan"
+                    },
+                    {
+                        "type": "Bus",
+                        "ligne": "137",
+                        "station": "Garibaldi"
+                    }
+                ]
+            },
+            "infosLegales":[
+                {"titre":"Siret", "valeur":"488 223 124 RCS Bobigny"},
+                {"titre":"APE", "valeur":"7311Z"},
+                {"titre":"Contrat d'Assurance", "valeur":"116555622F"}
+            ]
+        },
+        "individus":[
+            {
+                "nom":"Morgane",
+                "tel":"06 22 20 11 03",
+                "mail":"morgane@lardoisienne.fr"
+            }
+        ]
+    },
+    "footer":[
+        ["L'Ardoisienne", "22 rue Charles Schmidt", "93400 Saint-Ouen"],
+        ["tél. 09 51 74 76 67", "mob. 06 22 20 11 03", "info@lardoisienne.fr"]
+    ]
+}

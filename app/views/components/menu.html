@@ -1,21 +1,17 @@
 <div>
     <ul class="nav nav-pills pull-right">
-        <li ng-class="{active: isActive('/')}"><a ng-href="#/">Accueil</a></li>
-        <li class="dropdown" ng-class="{active: isMenuActive('/galerie')}">
-            <a class="dropdown-toggle" data-toggle="dropdown">Galerie<span class="caret"></span> </a>
-            <ul class="dropdown-menu">
-                <li ng-class="{active: isActive('/galerie/ardoises')}">
-                    <a ng-href="#/galerie/ardoises">Ardoises</a>
-                </li>
-                <li ng-class="{active: isActive('/galerie/chevalets')}">
-                    <a ng-href="#/galerie/chevalets">Chevalets</a>
-                </li>
-                <li ng-class="{active: isActive('/galerie/customisations')}">
-                    <a ng-href="#/galerie/customisations">Customisations & Vitrines</a>
+        <li ng-repeat="item in menu" ng-class="{'active':isActive(item), 'dropdown':item.menu}">
+            <a ng-hide="item.menu" ng-href="#{{item.location}}"> {{item.titre}} </a>
+            <a ng-show="item.menu" data-toggle="dropdown">
+                {{item.titre}}
+                <span ng-show="item.menu" class="caret"></span>
+            </a>
+            <ul ng-show="item.menu" class="dropdown-menu">
+                <li ng-repeat="item2 in item.menu" ng-class="{'active':isActive(item2)}">
+                    <a ng-href="#{{item2.location}}">{{item2.titre}}</a>
                 </li>
             </ul>
         </li>
-        <li ng-class="{active: isActive('/contact')}"><a ng-href="#/contact">Contact</a></li>
     </ul>
     <div>
         <a href=".">
