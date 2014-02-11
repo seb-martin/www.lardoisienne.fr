@@ -11,6 +11,41 @@ angular.module('lardoisienneApp')
         };
 
     }])
+    .factory('AuthService', ['$rootScope', 'cloudDataLocation', function($rootScope, cloudDataLocation) {
+        var ref = new Firebase(cloudDataLocation);
+
+        var data = {
+            user: {},
+            login: function () {
+                delete this.loginFail;
+                auth.login('password', this.user);
+            },
+            logout: function() {
+                auth.logout();
+            }
+
+        };
+
+        var auth = new FirebaseSimpleLogin(ref, function (error, user) {
+            if (error) {
+                // an error occurred while attempting login
+                console.log(error);
+                data.loginFail = error;
+                $rootScope.$broadcast('auth:loginFail', error);
+            } else if (user) {
+                // user authenticated with Firebase
+                console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
+                data.user = user;
+                $rootScope.$broadcast('auth:loginSuccess', user);
+            } else {
+                // user is logged out
+                data.user = {};
+                $rootScope.$broadcast('auth:logout');
+            }
+        });
+
+        return  data;
+    }])
     .factory('GalerieService', ['CloudData', function(CloudData) {
         return function(theme) {
             var result;

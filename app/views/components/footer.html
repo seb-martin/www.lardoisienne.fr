@@ -1,6 +1,9 @@
-<div ng-repeat="ligne in data">
-    <span ng-repeat="info in ligne">
-        {{info}} <i ng-hide="$last" class="glyphicon glyphicon-minus"></i>
-    </span>
-    <br ng-hide="$last">
+<div>
+    <div ng-repeat="ligne in data">
+        <span ng-repeat="info in ligne">
+            {{info}} <i ng-hide="$last" class="glyphicon glyphicon-minus"></i>
+        </span>
+        <br ng-hide="$last">
+    </div>
+    <div ard-logout></div>
 </div>

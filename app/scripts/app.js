@@ -22,6 +22,9 @@ angular.module('lardoisienneApp', [
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl'
             })
+            .when('/login', {
+                templateUrl: 'views/login.html'
+            })
             .when('/contact', {
                 templateUrl: 'views/contact.html'
             })

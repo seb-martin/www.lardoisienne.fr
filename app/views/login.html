@@ -1,0 +1,42 @@
+<div class="bordered-box" style="padding: 30px" ng-controller="LoginCtrl">
+    <form role="form" class="form-horizontal" ng-submit="login()" ng-hide="user.id">
+        <div class="form-group">
+            <label for="email" class="col-sm-offset-2 col-sm-3">Email</label>
+            <div class="col-sm-5">
+                <input id="email" type="email" class="form-control" ng-model="user.email" name="email" placeholder="Saisissez votre email"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-offset-2 col-sm-3">Mot de passe</label>
+
+            <div class="col-sm-5">
+                <input id="password" type="password" class="form-control" ng-model="user.password" placeholder="Mot de passe"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-5">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" ng-model="user.rememberMe"> Se rappeler de moi
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-5 col-sm-5">
+                <button type="submit" class="btn btn-default">Login !</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-8">
+                <span class="alert alert-warning" ng-show="loginFail">Email ou mot de passe invalide</span>
+            </div>
+        </div>
+
+    </form>
+
+    <form ng-show="user.id" ng-submit="logout()">
+        <h1>Vous êtes authentifié comme {{user.email}}</h1>
+        <button type="submit" class="btn btn-default">Logout</button>
+    </form>
+</div>

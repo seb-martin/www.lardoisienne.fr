@@ -35,6 +35,9 @@ Mixins
   padding: @padding;
 }
 
+.bordered-box{
+  .bordered-box();
+}
 
 /*
 TAGS : Surcharge des balises
@@ -223,6 +226,16 @@ pour étendre Bootstrap et
 créer des composants spécifiques à www.lardoisienne.fr.
 
 */
+
+.discret{
+  & a{
+    color: @ard-gris6;
+    &:hover{
+      color: @ard-gris5;
+    }
+  }
+}
+
 
 
 .ard-label(@color1, @color2){

@@ -10,7 +10,10 @@
                     </span>
                 </address>
                 <address>
-                    <i class="glyphicon glyphicon-phone-alt"></i> {{contact.atelier.coordonnees.tel}}<br>
+                    <i class="glyphicon glyphicon-phone-alt"></i>
+                    {{contact.atelier.coordonnees.tel}}
+                    <input type="tel" ng-model="tel"/>
+                    <br>
                     <i class="glyphicon glyphicon-print"></i>  {{contact.atelier.coordonnees.fax}}<br>
                     <i class="glyphicon glyphicon-envelope"></i> <a ng-href="mailto:{{contactInfos.siege.mail}}">{{contact.atelier.coordonnees.mail}}</a>
                 </address>
