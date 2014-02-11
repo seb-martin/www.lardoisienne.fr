@@ -1,19 +1,30 @@
-/*global $:false, Firebase:false */
+/*global $:false, Firebase:false, FirebaseSimpleLogin:false */
 /*http://stackoverflow.com/questions/8852765/jshint-strict-mode-and-jquery-is-not-defined*/
 'use strict';
 
 angular.module('lardoisienneApp')
-    .factory('CloudData', ['$firebase', 'cloudDataLocation', function($firebase, cloudDataLocation) {
+    .factory('FirebaseRef', ['cloudDataLocation', function(cloudDataLocation) {
+        var rootRef = new Firebase(cloudDataLocation);
+
+        return {
+            ref: function(path) {
+                if(path) {
+                    return rootRef.child(path);
+                } else {
+                    return rootRef;
+                }
+            }
+        };
+    }])
+    .factory('CloudData', ['$firebase', 'FirebaseRef', function($firebase, FirebaseRef) {
 
         return function(query) {
-            var ref = new Firebase(cloudDataLocation + query);
+            var ref = FirebaseRef.ref(query);
             return $firebase(ref);
         };
 
     }])
-    .factory('AuthService', ['$rootScope', 'cloudDataLocation', function($rootScope, cloudDataLocation) {
-        var ref = new Firebase(cloudDataLocation);
-
+    .factory('AuthService', ['$rootScope', 'FirebaseRef', function($rootScope, FirebaseRef) {
         var data = {
             user: {},
             login: function () {
@@ -23,10 +34,9 @@ angular.module('lardoisienneApp')
             logout: function() {
                 auth.logout();
             }
-
         };
 
-        var auth = new FirebaseSimpleLogin(ref, function (error, user) {
+        var auth = new FirebaseSimpleLogin(FirebaseRef.ref(), function (error, user) {
             if (error) {
                 // an error occurred while attempting login
                 console.log(error);

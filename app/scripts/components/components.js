@@ -25,28 +25,28 @@ angular.module('lardoisienneApp')
     .directive('ardLogout', ['AuthService', function(auth) {
 
         return {
-            restrict:'A',
-            templateUrl: 'views/components/ard-logout.html',
+            restrict: 'A',
+            templateUrl: 'views/components/logout.html',
             scope: { },
             replace: true,
-            link: function(scope) {
-                var update = function(){
+            link: function (scope) {
+                var update = function () {
                     scope.user = auth.user;
                 };
 
-                scope.$on('auth:loginSuccess', function() {
-                    scope.$apply(update)
+                scope.$on('auth:loginSuccess', function () {
+                    scope.$apply(update);
                 });
 
-                scope.$on('auth:logout', function() {
-                    scope.$apply(update)
+                scope.$on('auth:logout', function () {
+                    scope.$apply(update);
                 });
 
-                scope.logout = function() {
+                scope.logout = function () {
                     auth.logout();
                 };
             }
-        }
+        };
     }])
     .directive('footer', ['CloudData', function(CloudData) {
         return {
