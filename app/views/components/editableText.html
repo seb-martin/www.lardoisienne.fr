@@ -1,0 +1,14 @@
+<span>
+
+    <span ng-hide="edition">
+        {{text}}
+    </span>
+    <span ng-hide="!user.id || edition">
+        <a ng-click="enterEdition()"><i class="glyphicon glyphicon-edit"></i></a>
+    </span>
+    <span ng-show="user.id && edition">
+        <label><input id="textInput" type="text" ng-model="editedText" ng-keydown="keypress($event)" autofocus="{{edition}}"/></label>
+        <a ng-click="ok()"><i class="glyphicon glyphicon-check"></i></a>
+        <a ng-click="cancel()"><i class="glyphicon glyphicon-unchecked"></i></a>
+    </span>
+</span>
