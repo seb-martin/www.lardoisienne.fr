@@ -75,37 +75,7 @@
             <section id="message">
                 <h2 class="ard-color-orange1"><i class="glyphicon glyphicon-send"></i> Une info ?</h2>
 
-
-                <form role="form" ng-submit="envoyer()">
-                    <div class="form-group">
-                        <label for="raisonSocialeInput">Raison Sociale <i class="glyphicon glyphicon-asterisk"></i></label>
-                        <input type="text" class="form-control" id="raisonSocialeInput"
-                               ng-model="data.rs" autofocus="true" placeholder="L'Exemple" required="required"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="emailInput">Email <i class="glyphicon glyphicon-asterisk"></i></label>
-                        <input type="email" class="form-control" id="emailInput"
-                               ng-model="data.replyTo" placeholder="quisuisje@lexemple.fr" required="required"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="telInput">Téléphone</label>
-                        <input type="text" class="form-control" id="telInput"
-                               ng-model="data.tel" placeholder="01 23 45 67 89"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="msgInput">Message <i class="glyphicon glyphicon-asterisk"></i></label>
-                        <textarea class="form-control" id="msgInput"
-                                  ng-model="data.message" placeholder="Objet du message ..." required="required"></textarea>
-                    </div>
-                    <div class="alert alert-{{reponse.severite}}" ng-show="reponse">
-
-                        <button type="button" class="close" ng-click="reponse = undefined;">&times;</button>
-                        {{reponse.message}}
-                    </div>
-                    <div>
-                        <button type="submit" class="btn btn-default pull-right">Envoyer</button>
-                    </div>
-                </form>
+                <div ard-send-mail></div>
             </section>
         </div>
 

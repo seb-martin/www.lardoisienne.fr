@@ -1,0 +1,48 @@
+<div>
+    <form name="messageForm" role="form" ng-submit="envoyer()">
+        <div class="form-group" ng-class="inputValidationClass(messageForm.raisonSocialeInput)">
+            <label class="control-label" for="raisonSocialeInput">
+                Raison Sociale
+                <i ng-show="messageForm.raisonSocialeInput.$invalid" class="glyphicon glyphicon-asterisk" > </i>
+                <i ng-show="messageForm.raisonSocialeInput.$valid" class="glyphicon glyphicon-ok"> </i>
+            </label>
+            <input type="text" class="form-control" id="raisonSocialeInput" name="raisonSocialeInput"
+                   ng-model="data.rs" autofocus="true" placeholder="L'Exemple" required="required"/>
+        </div>
+        <div class="form-group" ng-class="inputValidationClass(messageForm.emailInput)">
+            <label class="control-label" for="emailInput">
+                Email
+                <i ng-show="messageForm.emailInput.$invalid" class="glyphicon glyphicon-asterisk" > </i>
+                <i ng-show="messageForm.emailInput.$valid" class="glyphicon glyphicon-ok"> </i>
+            </label>
+            <input type="email" class="form-control" id="emailInput" name="emailInput"
+                   ng-model="data.replyTo" placeholder="quisuisje@lexemple.fr" required="required"/>
+        </div>
+        <div class="form-group" ng-class="inputValidationClass(messageForm.telInput)">
+            <label class="control-label" for="telInput">
+                Téléphone
+                <i ng-show="messageForm.telInput.$invalid" class="glyphicon glyphicon-asterisk" > </i>
+                <i ng-show="messageForm.telInput.$valid" class="glyphicon glyphicon-ok"> </i>
+            </label>
+            <input type="text" class="form-control" id="telInput" name="telInput"
+                   ng-model="data.tel" placeholder="01 23 45 67 89"/>
+        </div>
+        <div class="form-group" ng-class="inputValidationClass(messageForm.msgInput)">
+            <label class="control-label" for="msgInput">
+                Message
+                <i ng-show="messageForm.msgInput.$invalid" class="glyphicon glyphicon-asterisk" > </i>
+                <i ng-show="messageForm.msgInput.$valid" class="glyphicon glyphicon-ok"> </i>
+            </label>
+            <textarea class="form-control" id="msgInput" name="msgInput"
+                      ng-model="data.message" placeholder="Objet du message ..." required="required"></textarea>
+        </div>
+        <div class="alert alert-{{reponse.severite}}" ng-show="reponse">
+
+            <button type="button" class="close" ng-click="reponse = undefined;">&times;</button>
+            {{reponse.message}}
+        </div>
+        <div>
+            <button type="submit" class="btn ard-orange-button pull-right" ng-disabled="messageForm.$invalid">Envoyer</button>
+        </div>
+    </form>
+</div>

@@ -37,8 +37,18 @@ angular.module('lardoisienneApp')
             $scope.editLigneAdresse = index;
         };
 
+        // Formulaire d'envoi de message d'information
+
         $scope.data = {};
         $scope.reponse = undefined;
+
+        $scope.inputValidationClass = function(input){
+            return {
+                'has-success': input.$dirty && input.$valid,
+                'has-error': input.$dirty && input.$invalid
+            }
+        };
+
 
         $scope.envoyer = function() {
             new SendMailService($scope.data).then(

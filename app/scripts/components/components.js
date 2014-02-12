@@ -131,4 +131,37 @@ angular.module('lardoisienneApp')
             }
         };
     }])
+    .directive('ardSendMail', ['SendMailService', function(SendMailService) {
+        return {
+            restrict: 'EA',
+            templateUrl: 'views/components/sendMail.html',
+            replace: true,
+//            scope: {},
+            link: function(scope) {
+                scope.data = {};
+                scope.reponse = undefined;
+
+                scope.inputValidationClass = function(input){
+                    return {
+                        'has-success': input.$dirty && input.$valid,
+                        'has-error': input.$dirty && input.$invalid
+                    }
+                };
+
+
+                scope.envoyer = function() {
+                    new SendMailService(scope.data).then(
+                        function(reponse) {
+                            scope.reponse = reponse;
+                            delete scope.data.message;
+                        },
+                        function(reponse) {
+                            scope.reponse = reponse;
+                        }
+                    );
+                };
+
+            }
+        }
+    }])
 ;
