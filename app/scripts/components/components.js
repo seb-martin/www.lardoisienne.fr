@@ -63,8 +63,10 @@ angular.module('lardoisienneApp')
             restrict: 'EA',
             templateUrl: 'views/components/editableText.html',
             replace: true,
+            transclude: true,
             scope: {
-                text: '='
+                text: '=',
+                iconClass:'@'
             },
             link: function (scope) {
                 // Event listeners

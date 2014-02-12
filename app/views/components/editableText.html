@@ -1,7 +1,7 @@
 <span>
 
-    <span ng-hide="edition">
-        {{text}}
+    <i ng-show="iconClass" class="{{iconClass}}"></i>
+    <span ng-hide="edition" ng-transclude="true">
     </span>
     <span ng-hide="!user.id || edition">
         <a ng-click="enterEdition()"><i class="glyphicon glyphicon-edit"></i></a>

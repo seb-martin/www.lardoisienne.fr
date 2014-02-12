@@ -63,7 +63,7 @@
                 "fax": "09 56 74 76 67"
             },
             "localisation": {
-                "geolocalisation-url": "https://mapsengine.google.com/map/edit?mid=zxks7r7C4S6s.kUUsXGhbii6U",
+                "geolocalisationUrl": "https://mapsengine.google.com/map/edit?mid=zxks7r7C4S6s.kUUsXGhbii6U",
                 "transports":[
                     {
                         "type": "Metro",

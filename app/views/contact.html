@@ -7,46 +7,43 @@
                 <address>
                     <div ng-repeat="ligne in contact.atelier.adresse">
 
-<!--
-                        <span ng-hide="editLigneAdresse === $index">{{contact.atelier.adresse[$index]}}</span>
-                        <span ng-hide="!user.id || editLigneAdresse === $index">
-                            <a ng-click="editLigne($index)"><i class="glyphicon glyphicon-pencil"></i></a>
-                        </span>
-                        <span ng-show="user.id && editLigneAdresse === $index">
-                            <label><input type="text" ng-model="contact.atelier.adresse[$index]"/></label>
-                            <a ng-click="editLigne(-1)"><i class="glyphicon glyphicon-ok"></i></a>
-                        </span>
--->
-
-                        <ard-editable-text text='contact.atelier.adresse[$index]'></ard-editable-text>
-
-
-
                         <span ng-show="user.id">
                             <a ng-click="contact.atelier.adresse.splice($index, 1)"><i class="glyphicon glyphicon-minus-sign"></i></a>
                         </span>
+                        <ard-editable-text text='ligne'>
+                            {{ligne}}
+                        </ard-editable-text>
                     </div>
                     <div ng-show="user.id">
                         <a ng-click="contact.atelier.adresse.push('Nouvelle ligne')"><i class="glyphicon glyphicon-plus-sign"></i></a>
                     </div>
                 </address>
                 <address>
-                    <i class="glyphicon glyphicon-phone-alt"></i>
-                    <ard-editable-text text='contact.atelier.coordonnees.tel'></ard-editable-text>
+                    <ard-editable-text text='contact.atelier.coordonnees.tel' icon-class="glyphicon glyphicon-phone-alt">
+                        {{contact.atelier.coordonnees.tel}}
+                    </ard-editable-text>
                     <br>
 
-                    <i class="glyphicon glyphicon-print"></i>
-                    <ard-editable-text text='contact.atelier.coordonnees.fax'></ard-editable-text>
+                    <ard-editable-text text='contact.atelier.coordonnees.fax' icon-class="glyphicon glyphicon-print">
+                        {{contact.atelier.coordonnees.fax}}
+                    </ard-editable-text>
                     <br>
 
-                    <i class="glyphicon glyphicon-envelope"></i> <a ng-href="mailto:{{contactInfos.siege.mail}}">{{contact.atelier.coordonnees.mail}}</a>
+                    <ard-editable-text text="contact.atelier.coordonnees.mail" icon-class="glyphicon glyphicon-envelope">
+                        <a ng-href="mailto:{{contact.atelier.coordonnees.mail}}">{{contact.atelier.coordonnees.mail}}</a>
+                    </ard-editable-text>
                 </address>
             </section>
 
             <section id="localisation">
                 <address>
-                    <i class="glyphicon glyphicon-map-marker"></i>
-                    <a target="_blank" ng-href="{{contact.atelier.localisation.geolocalisationUrl}}" href="https://mapsengine.google.com/map/edit?mid=zxks7r7C4S6s.kUUsXGhbii6U">Géolocalisation</a><br>
+
+                    <ard-editable-text text="contact.atelier.localisation.geolocalisationUrl" icon-class="glyphicon glyphicon-map-marker">
+                        <a target="_blank"
+                           ng-href="{{contact.atelier.localisation.geolocalisationUrl}}">Géolocalisation</a>
+                    </ard-editable-text>
+                    <br>
+
                     <span ng-repeat="transport in contact.atelier.localisation.transports">
                         <i class="glyphicon glyphicon-plane"></i> {{transport.type}} {{transport.ligne}} - {{transport.station}}<br>
                     </span>
@@ -65,8 +62,13 @@
             <section ng-repeat="individu in contact.individus">
                 <h2 class="ard-color-green1"><i class="glyphicon glyphicon-user"></i> {{individu.nom}}</h2>
                 <address>
-                    <i class="glyphicon glyphicon-phone"></i> {{individu.tel}}<br>
-                    <i class="glyphicon glyphicon-envelope"></i> <a ng-href="mailto:{{individu.mail}}">{{individu.mail}}</a>
+                    <ard-editable-text text="individu.tel" icon-class="glyphicon glyphicon-phone">
+                        {{individu.tel}}
+                    </ard-editable-text>
+                    <br>
+                    <ard-editable-text text="individu.mail" icon-class="glyphicon glyphicon-envelope">
+                        <a ng-href="mailto:{{individu.mail}}">{{individu.mail}}</a>
+                    </ard-editable-text>
                 </address>
             </section>
 
