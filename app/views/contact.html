@@ -4,19 +4,14 @@
         <div class="col-xs-6">
             <section id="atelier-contact">
                 <h2 class="ard-color-blue1"><i class="glyphicon glyphicon-home"></i> {{contact.atelier.titre}}</h2>
-                <address>
-                    <div ng-repeat="ligne in contact.atelier.adresse">
 
-                        <span ng-show="user.id">
-                            <a ng-click="contact.atelier.adresse.splice($index, 1)"><i class="glyphicon glyphicon-minus-sign"></i></a>
-                        </span>
-                        <ard-editable-text text='ligne'>
-                            {{ligne}}
-                        </ard-editable-text>
-                    </div>
-                    <div ng-show="user.id">
-                        <a ng-click="contact.atelier.adresse.push('Nouvelle ligne')"><i class="glyphicon glyphicon-plus-sign"></i></a>
-                    </div>
+                <address>
+                    <ard-editable-list list="contact.atelier.adresse" new-value="'Nouvelle ligne'">
+                        <ard-editable-list-item ng-repeat="ligne in contact.atelier.adresse | orderByPriority">
+                            <ard-editable-text text="contact.atelier.adresse[$index]"> {{ligne}}</ard-editable-text>
+                        </ard-editable-list-item>
+                    </ard-editable-list>
+
                 </address>
                 <address>
                     <ard-editable-text text='contact.atelier.coordonnees.tel' icon-class="glyphicon glyphicon-phone-alt">
@@ -37,24 +32,27 @@
 
             <section id="localisation">
                 <address>
+                    <ard-editable-list list="contact.atelier.localisation.transports" new-value="'<transport> <n° ligne> - <station>'">
+                        <ard-editable-list-item ng-repeat="transport in contact.atelier.localisation.transports">
+                            <ard-editable-text text='contact.atelier.localisation.transports[$index]' icon-class="glyphicon glyphicon-plane"> {{transport}}</ard-editable-text>
+                        </ard-editable-list-item>
+                    </ard-editable-list>
 
                     <ard-editable-text text="contact.atelier.localisation.geolocalisationUrl" icon-class="glyphicon glyphicon-map-marker">
-                        <a target="_blank"
-                           ng-href="{{contact.atelier.localisation.geolocalisationUrl}}">Géolocalisation</a>
+                        <a target="_blank" ng-href="{{contact.atelier.localisation.geolocalisationUrl}}">Géolocalisation</a>
                     </ard-editable-text>
-                    <br>
-
-                    <span ng-repeat="transport in contact.atelier.localisation.transports">
-                        <i class="glyphicon glyphicon-plane"></i> {{transport.type}} {{transport.ligne}} - {{transport.station}}<br>
-                    </span>
                 </address>
             </section>
 
             <section id="infos-legales">
                 <address>
-                    <span ng-repeat="info in contact.atelier.infosLegales">
-                        <i class="glyphicon glyphicon-pushpin"></i> {{info.titre}} : {{info.valeur}}<br>
-                    </span>
+
+                    <ard-editable-list list="contact.atelier.infosLegales" new-value="'<titre> : <info>'">
+                        <ard-editable-list-item ng-repeat="info in contact.atelier.infosLegales">
+                            <ard-editable-text text='contact.atelier.infosLegales[$index]' icon-class="glyphicon glyphicon-pushpin"> {{info}}</ard-editable-text>
+                        </ard-editable-list-item>
+                    </ard-editable-list>
+
                 </address>
             </section>
         </div>

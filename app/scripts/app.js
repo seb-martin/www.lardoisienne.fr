@@ -8,7 +8,6 @@ angular.module('lardoisienneApp', [
         'firebase'
     ])
 
-    .constant('cloudDataLocation', 'https://lardoisienne.firebaseio.com')
 
     .constant('galerieMapUrl', './medias/galerie/galerie-map.json')
 

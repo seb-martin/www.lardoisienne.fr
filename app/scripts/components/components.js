@@ -2,14 +2,14 @@
 
 angular.module('lardoisienneApp')
 
-    .directive('menu', ['$location', 'CloudData', function($location, CloudData) {
+    .directive('menu', ['$location', 'firebase', function($location, firebase) {
         return {
             restrict: 'A',
             templateUrl: 'views/components/menu.html',
             replace: true,
             link: function(scope) {
 
-                scope.menu = new CloudData('/header/menu');
+                scope.menu = firebase.$child('/header/menu');
 
                 scope.isActive = function(menuItem) {
                     if(menuItem.menu) {
@@ -48,15 +48,83 @@ angular.module('lardoisienneApp')
             }
         };
     }])
-    .directive('footer', ['CloudData', function(CloudData) {
+    .directive('footer', ['firebase', function(firebase) {
         return {
             restrict: 'C',
             templateUrl: 'views/components/footer.html',
             replace: false,
             link: function (scope) {
-                scope.data = new CloudData('/footer');
+                scope.data = firebase.$child('/footer');
             }
         };
+    }])
+    .directive('ardEditableList', ['AuthService', function(authService) {
+        return {
+            restrict: 'EA',
+            templateUrl: 'views/components/editableList.html',
+            replace: true,
+            transclude: true,
+            scope: {
+                list: '=',
+                newValue: '='
+            },
+            controller: function ($scope) {
+
+                this.remove = function (index) {
+                    $scope.list.splice(index, 1);
+                };
+
+            },
+            link: function (scope) {
+                // Event listeners
+                scope.$on('auth:loginSuccess', function (event, user) {
+                    scope.$apply(function () {
+                        scope.user = user;
+                    });
+                });
+                scope.$on('auth:logout', function () {
+                    scope.$apply(function () {
+                        scope.user = {};
+                    });
+                });
+
+                // Model
+                scope.user = authService.user;
+            }
+        };
+    }])
+    .directive('ardEditableListItem', ['AuthService', function(authService) {
+        return {
+            restrict: 'EA',
+            templateUrl: 'views/components/editableListItem.html',
+            replace: true,
+            transclude: true,
+            require: '^ardEditableList',
+            scope: false,
+            link: function (scope, element, attrs, ardEditableListCtrl) {
+
+                // Event listeners
+                scope.$on('auth:loginSuccess', function (event, user) {
+                    scope.$apply(function () {
+                        scope.user = user;
+                    });
+                });
+                scope.$on('auth:logout', function () {
+                    scope.$apply(function () {
+                        scope.user = {};
+                    });
+                });
+
+                // Model
+                scope.user = authService.user;
+
+                // Behaviours
+                scope.remove = function (index) {
+                    ardEditableListCtrl.remove(index);
+                };
+            }
+        };
+
     }])
     .directive('ardEditableText', ['AuthService', function(authService) {
         return {
@@ -137,31 +205,31 @@ angular.module('lardoisienneApp')
             templateUrl: 'views/components/sendMail.html',
             replace: true,
 //            scope: {},
-            link: function(scope) {
+            link: function (scope) {
                 scope.data = {};
                 scope.reponse = undefined;
 
-                scope.inputValidationClass = function(input){
+                scope.inputValidationClass = function (input) {
                     return {
                         'has-success': input.$dirty && input.$valid,
                         'has-error': input.$dirty && input.$invalid
-                    }
+                    };
                 };
 
 
-                scope.envoyer = function() {
+                scope.envoyer = function () {
                     new SendMailService(scope.data).then(
-                        function(reponse) {
+                        function (reponse) {
                             scope.reponse = reponse;
                             delete scope.data.message;
                         },
-                        function(reponse) {
+                        function (reponse) {
                             scope.reponse = reponse;
                         }
                     );
                 };
 
             }
-        }
+        };
     }])
 ;

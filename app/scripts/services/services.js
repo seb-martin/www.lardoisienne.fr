@@ -3,28 +3,16 @@
 'use strict';
 
 angular.module('lardoisienneApp')
-    .factory('FirebaseRef', ['cloudDataLocation', function(cloudDataLocation) {
-        var rootRef = new Firebase(cloudDataLocation);
+    .constant('firebaseLocation', 'https://lardoisienne.firebaseio.com')
 
-        return {
-            ref: function(path) {
-                if(path) {
-                    return rootRef.child(path);
-                } else {
-                    return rootRef;
-                }
-            }
-        };
+    .factory('firebase', ['$firebase', 'firebaseLocation', function($firebase, firebaseLocation) {
+        var ref = new Firebase(firebaseLocation);
+        return $firebase(ref);
     }])
-    .factory('CloudData', ['$firebase', 'FirebaseRef', function($firebase, FirebaseRef) {
 
-        return function(query) {
-            var ref = FirebaseRef.ref(query);
-            return $firebase(ref);
-        };
 
-    }])
-    .factory('AuthService', ['$rootScope', 'FirebaseRef', function($rootScope, FirebaseRef) {
+
+    .factory('AuthService', ['$rootScope', 'firebaseLocation', function($rootScope, firebaseLocation) {
         var data = {
             user: {},
             login: function () {
@@ -36,7 +24,7 @@ angular.module('lardoisienneApp')
             }
         };
 
-        var auth = new FirebaseSimpleLogin(FirebaseRef.ref(), function (error, user) {
+        var auth = new FirebaseSimpleLogin(new Firebase(firebaseLocation), function (error, user) {
             if (error) {
                 // an error occurred while attempting login
                 console.log(error);
@@ -56,15 +44,15 @@ angular.module('lardoisienneApp')
 
         return  data;
     }])
-    .factory('GalerieService', ['CloudData', function(CloudData) {
+    .factory('GalerieService', ['firebase', function(firebase) {
         return function(theme) {
             var result;
             var query = '/galerie';
             if(theme) {
                 query += '/' + theme;
-                result = new CloudData(query);
+                result = firebase.$child(query);
             } else {
-                var galerie = new CloudData(query);
+                var galerie = firebase.$child(query);
                 result = [];
                 angular.forEach(galerie, function (clichesTheme) {
                     result.push(clichesTheme);
