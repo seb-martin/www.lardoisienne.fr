@@ -13,6 +13,7 @@ angular.module('lardoisienneApp')
 
 
     .factory('AuthService', ['$rootScope', 'firebaseLocation', function($rootScope, firebaseLocation) {
+        console.log("AuthService start", $rootScope, firebaseLocation);
         var data = {
             user: {},
             login: function () {
@@ -41,6 +42,8 @@ angular.module('lardoisienneApp')
                 $rootScope.$broadcast('auth:logout');
             }
         });
+
+        console.log("AuthService end");
 
         return  data;
     }])

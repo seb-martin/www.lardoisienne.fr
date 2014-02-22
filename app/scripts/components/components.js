@@ -68,13 +68,13 @@ angular.module('lardoisienneApp')
                 list: '=',
                 newValue: '='
             },
-            controller: function ($scope) {
+            controller: ['$scope', function ($scope) {
 
                 this.remove = function (index) {
                     $scope.list.splice(index, 1);
                 };
 
-            },
+            }],
             link: function (scope) {
                 // Event listeners
                 scope.$on('auth:loginSuccess', function (event, user) {
@@ -102,6 +102,7 @@ angular.module('lardoisienneApp')
             require: '^ardEditableList',
             scope: false,
             link: function (scope, element, attrs, ardEditableListCtrl) {
+                console.log("ardEditableListItem start", scope, element, attrs, ardEditableListCtrl);
 
                 // Event listeners
                 scope.$on('auth:loginSuccess', function (event, user) {
@@ -122,6 +123,9 @@ angular.module('lardoisienneApp')
                 scope.remove = function (index) {
                     ardEditableListCtrl.remove(index);
                 };
+
+                console.log("ardEditableListItem start", scope, element, attrs, ardEditableListCtrl);
+
             }
         };
 

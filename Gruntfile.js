@@ -29,18 +29,10 @@ module.exports = function (grunt) {
         less: {
             default: {
                 options: {
-                    paths: ['<%= yeoman.app %>/styles']
+                    paths: ['<%= yeoman.app %>/styles/less']
                 },
                 files: {
-                    'app/styles/main.css': '<%= yeoman.app %>/styles/main.less'
-                }
-            },
-            dist: {
-                options: {
-                    paths: ['<%= yeoman.app %>/styles']
-                },
-                files: {
-                    'app/styles/main.css': '<%= yeoman.app %>/styles/main.less'
+                    'app/styles/css/main.css': '<%= yeoman.app %>/styles/less/main.less'
                 }
             }
         },
@@ -59,7 +51,7 @@ module.exports = function (grunt) {
                 tasks: ['newer:jshint:test', 'karma']
             },
             styles: {
-                files: ['<%= yeoman.app %>/styles/{,*/}{*.css, *.less}'],
+                files: ['<%= yeoman.app %>/styles/less/{,*/}*.less'],
                 tasks: ['less', 'newer:copy:styles', 'autoprefixer']
             },
             gruntfile: {
@@ -310,13 +302,16 @@ module.exports = function (grunt) {
         // Run some tasks in parallel to speed up the build process
         concurrent: {
             server: [
-                'copy:styles'
+//                'copy:styles'
+                'less'
             ],
             test: [
-                'copy:styles'
+//                'copy:styles'
+                'less'
             ],
             dist: [
-                'copy:styles',
+//                'copy:styles',
+                'less',
                 'imagemin',
                 'svgmin'
             ]
@@ -358,8 +353,6 @@ module.exports = function (grunt) {
     });
 
 
-    grunt.loadNpmTasks('grunt-contrib-less');
-
     grunt.registerTask('serve', function (target) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
@@ -391,7 +384,6 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'bower-install',
-        'less:dist',
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
@@ -411,4 +403,7 @@ module.exports = function (grunt) {
         'test',
         'build'
     ]);
+
+    grunt.registerTask('myconcat', ['useminPrepare', 'concat']);
+
 };
