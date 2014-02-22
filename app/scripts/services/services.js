@@ -13,7 +13,6 @@ angular.module('lardoisienneApp')
 
 
     .factory('AuthService', ['$rootScope', 'firebaseLocation', function($rootScope, firebaseLocation) {
-        console.log("AuthService start", $rootScope, firebaseLocation);
         var data = {
             user: {},
             login: function () {
@@ -28,12 +27,10 @@ angular.module('lardoisienneApp')
         var auth = new FirebaseSimpleLogin(new Firebase(firebaseLocation), function (error, user) {
             if (error) {
                 // an error occurred while attempting login
-                console.log(error);
                 data.loginFail = error;
                 $rootScope.$broadcast('auth:loginFail', error);
             } else if (user) {
                 // user authenticated with Firebase
-                console.log('User ID: ' + user.id + ', Provider: ' + user.provider);
                 data.user = user;
                 $rootScope.$broadcast('auth:loginSuccess', user);
             } else {
@@ -42,8 +39,6 @@ angular.module('lardoisienneApp')
                 $rootScope.$broadcast('auth:logout');
             }
         });
-
-        console.log("AuthService end");
 
         return  data;
     }])
@@ -91,7 +86,6 @@ angular.module('lardoisienneApp')
                         deferred.notify('Statut : ' + status);
                         deferred.reject({ severite: 'danger', message: data || 'Echec de l\'envoi du message.' });
                     }
-                    console.log(data);
                 });
 
             return deferred.promise;

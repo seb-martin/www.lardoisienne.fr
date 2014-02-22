@@ -102,8 +102,6 @@ angular.module('lardoisienneApp')
             require: '^ardEditableList',
             scope: false,
             link: function (scope, element, attrs, ardEditableListCtrl) {
-                console.log("ardEditableListItem start", scope, element, attrs, ardEditableListCtrl);
-
                 // Event listeners
                 scope.$on('auth:loginSuccess', function (event, user) {
                     scope.$apply(function () {
@@ -123,8 +121,6 @@ angular.module('lardoisienneApp')
                 scope.remove = function (index) {
                     ardEditableListCtrl.remove(index);
                 };
-
-                console.log("ardEditableListItem start", scope, element, attrs, ardEditableListCtrl);
 
             }
         };
@@ -180,7 +176,6 @@ angular.module('lardoisienneApp')
                 };
 
                 scope.keypress = function (event) {
-                    console.log(event);
                     if (event.keyCode === 13) { // Enter
                         validEdition();
                         exitEdition();
