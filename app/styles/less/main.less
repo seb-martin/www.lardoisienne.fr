@@ -30,7 +30,7 @@ Variables
 Mixins
 */
 
-.bordered-box (@border-width: 1px, @border-style:solid, @border-color: @ard-rouge, @border-radius: 6px, @padding: 12px){
+.bordered-box (@border-color: @ard-rouge, @border-radius: 6px, @padding: 12px, @border-width: 1px, @border-style:solid){
   border: @border-width @border-style @border-color;
   border-radius: @border-radius;
   padding: @padding;
@@ -45,14 +45,15 @@ TAGS : Surcharge des balises
 */
 
 body {
-  padding-top: 20px;
+  padding-top: 50px;
   padding-bottom: 20px;
 
   /* Background */
   background: url(../../background.png) no-repeat;
   background-size: cover;
 
-  font-size: 14px;
+  font-size: 18px;
+//  font-family: 'Purple Purse', cursive;
   color: @ard-gris3;
 
 }
@@ -273,6 +274,16 @@ créer des composants spécifiques à www.lardoisienne.fr.
 
 }
 
+.ard-bg(@color, @background-color, @a-hover-background-color){
+  color: @color;
+  background-color: @background-color;
+
+  a&:hover{
+    background-color: @a-hover-background-color;
+  }
+}
+
+
 .ard-btn(@blanc, @noir, @color1, @color2, @color3){
   color: @noir;
   background-color: @color1;
@@ -317,8 +328,16 @@ créer des composants spécifiques à www.lardoisienne.fr.
   color: @ard-bleu1;
 }
 
+.ard-bb-blue{
+  .bordered-box(@ard-bleu1)
+}
+
 .ard-blue-label{
   .ard-label(@ard-bleu1, @ard-bleu2)
+}
+
+.ard-bg-blue{
+  .ard-bg(@ard-gris3, @ard-bleu1, @ard-bleu2)
 }
 
 .ard-blue-button {
@@ -330,8 +349,16 @@ créer des composants spécifiques à www.lardoisienne.fr.
   color: @ard-vert1;
 }
 
+.ard-bb-green{
+  .bordered-box(@ard-vert1)
+}
+
 .ard-green-label{
   .ard-label(@ard-vert1, @ard-vert2)
+}
+
+.ard-bg-green{
+  .ard-bg(@ard-gris3, @ard-vert1, @ard-vert2)
 }
 
 .ard-green-button {
@@ -342,9 +369,19 @@ créer des composants spécifiques à www.lardoisienne.fr.
   color: @ard-orange1;
 }
 
+.ard-bb-orange{
+  .bordered-box(@ard-orange1)
+}
+
 .ard-orange-label{
   .ard-label(@ard-orange1, @ard-orange2)
 }
+
+.ard-bg-orange{
+  .ard-bg(@ard-gris3, @ard-orange1, @ard-orange2)
+}
+
+
 
 .ard-orange-button {
   .ard-btn(@ard-gris3, @ard-gris6, @ard-orange1, @ard-orange2, @ard-orange3);

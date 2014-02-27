@@ -1,103 +1,107 @@
 
-<div class="jumbotron">
-    <p class="lead">
-        <img src="images/main.png" alt="L'Ardoisienne"><br/>
-    </p>
 
-    <h3>Spécialisée dans la fabrication</h3>
-    <h1>d'ardoises</h1>
-    <h2>personnalisées</h2>
-</div>
-
-<div class="row marketing">
-
-    <p class="lead">
-        Dans votre établissement, l'aménagement, le mobilier, le décor ont été étudiés
-        pour satisfaire aux demandes d’une clientèle choisie.
-    </p>
+<ard-masthead></ard-masthead>
 
 
-    <p class="lead"><span class="label ard-orange-label">Qu'en est-il de la présentation de vos consommations et plats ?</span></p>
-
-    <p>
-        Votre ardoise ne doit plus être
-        affichée uniquement pour
-        satisfaire à la loi, mais devenir
-        un accessoire essentiel du décor, un
-        objet d'appel, faire partie intégrante
-        de l'atmosphère du bar et de la salle.
-
-    </p>
-    <p>
-        Séduits par votre ardoise, vos clients
-        prendront plaisir à la lire puis à
-        commander. Sa calligraphie, son
-        format, son encadrement et ses
-        ornements sont autant d'éléments
-        qui valoriseront le lieu, animeront
-        l'ambiance et aideront au service.
-    </p>
-
-    <p class="lead"><span class="label ard-blue-label">Votre ardoise sera la première ambassadrice de la cuisine et du bar.</span> </p>
-
-    <p>
-        Spécialisée dans la fabrication
-        d'ardoises sur-mesure,
-        L'ARDOISIENNE vous conseille
-        pour que celles-ci soient à l'image de
-        votre établissement et valorisent sa
-        décoration. Pour toute étude, n'hésitez
-        pas, sans engagement de votre part,
-        à nous demander un rendez-vous.
-    </p>
-
-</div>
-
-<div class="row marketing" >
-    <button ng-click="fullmarketing = !fullmarketing" class="btn ard-blue-button" ng-hide="fullmarketing">En savoir plus ...</button>
-
-    <a href="#/contact" class="btn ard-green-button pull-right">Nous contacter</a>
-</div>
-
-<div class="row marketing" ng-show="fullmarketing">
-    <p>
-        L'ardoise est traditionnellement le support de communication principal de tout établissement CHR
-        (café, hôtel, restaurant). On y affiche la liste des consommations, plats et boissons,
-        ainsi que  les volumes et  prix.
-    </p>
-    <p>
-        En plus de satisfaire à la communication de votre établissement et aux obligations légales d’affichage,
-        l'ardoise devient par son attrait  un élément central de votre décoration tant intérieure qu'extérieure.
-    </p>
-    <p>
-        Une ardoise lisible et harmonieuse induira un à priori favorable sur la parfaite qualité de vos menus
-        comme sur le service offert aux clients.
-    </p>
-    <p>
-        Sa calligraphie, son encadrement, ses ornements et incrustations sont autant d'éléments qui valoriseront
-        le lieu, animeront l’ambiance et aideront au service.
-    </p>
-    <p>
-        Spécialisée dans la réalisation d'ardoises sur-mesure,
-        L'Ardoisienne vous conseille pour que celles-ci soient à l'image de votre établissement et
-        valorisent sa décoration.
-    </p>
-    <p>
-        Nos ardoises sont entièrement  exécutées à la main et peuvent être modifiées régulièrement à la demande
-        (changement de menus, prix…) dans le cadre de notre contrat de maintenance.
-    </p>
-    <p>
-        Pour une utilisation étendue et une plus grande flexibilité nous pouvons également intégrer des zones
-        inscriptibles (pour le plat du jour ou les changements de prix fréquent…).
-    </p>
 
 
-</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" style="margin-top: 20px">
+            <h2 class="bordered-box" style="text-align: center;">
+                Dans votre établissement, l'<strong>aménagement</strong>, le <strong>mobilier</strong>,
+                le <strong>décor</strong> ont été <strong>étudiés</strong>
+                pour <strong>satisfaire</strong> aux demandes d’une <strong>clientèle</strong> choisie.
+            </h2>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <h3 class="ard-bb-orange" style="text-align: center;">Qu'en est-il de la présentation de vos consommations et plats ?</h3>
 
-<div class="row marketing" ng-show="fullmarketing">
-    <a href="#/galerie" class="btn ard-blue-button">Voir la galerie</a>
+                <p>
+                    Votre ardoise ne doit plus être
+                    affichée uniquement pour
+                    satisfaire à la loi, mais devenir
+                    un accessoire essentiel du décor, un
+                    objet d'appel, faire partie intégrante
+                    de l'atmosphère du bar et de la salle.
 
-    <a href="./medias/plaquette/LARDOISIENNE.pdf" target="_blank" class="btn ard-orange-button pull-right">Télécharger notre plaquette</a>
+                </p>
+                <p>
+                    Séduits par votre ardoise, vos clients
+                    prendront plaisir à la lire puis à
+                    commander. Sa calligraphie, son
+                    format, son encadrement et ses
+                    ornements sont autant d'éléments
+                    qui valoriseront le lieu, animeront
+                    l'ambiance et aideront au service.
+                </p>
+
+                <p style="text-align: right">
+                    <a ng-href="#/galerie" class="btn ard-blue-button" style="font-size: 20px; padding: 14px 24px; margin: 5px;">Voir la galerie</a>
+
+                </p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div>
+                <h3 class="ard-bb-blue" style="text-align: center;">Votre ardoise sera la première ambassadrice de la cuisine et du bar.</h3>
+
+                <p>
+                    Spécialisée dans la fabrication
+                    d'ardoises sur-mesure,
+                    <em>L'Ardoisienne</em> vous conseille
+                    pour que celles-ci soient à l'image de
+                    votre établissement et valorisent sa
+                    décoration. Pour toute étude, n'hésitez
+                    pas, sans engagement de votre part,
+                    à nous demander un rendez-vous.
+                </p>
+
+                <p style="text-align: right">
+                    <a ng-href="#/contact" class="btn ard-green-button" style="font-size: 20px; padding: 14px 24px; margin: 5px;">Nous contacter</a>
+                </p>
+
+            </div>
+        </div>
+        <div class="col-md-offset-1 col-md-10">
+            <div class="bordered-box" style="margin-top: 50px; padding: 25px">
+                <p>
+                    L'ardoise est traditionnellement le support de communication principal de tout établissement CHR
+                    (café, hôtel, restaurant). On y affiche la liste des consommations, plats et boissons,
+                    ainsi que  les volumes et  prix.
+                </p>
+                <p>
+                    En plus de satisfaire à la communication de votre établissement et aux obligations légales d’affichage,
+                    l'ardoise devient par son attrait  un élément central de votre décoration tant intérieure qu'extérieure.
+                </p>
+                <p>
+                    Une ardoise lisible et harmonieuse induira un à priori favorable sur la parfaite qualité de vos menus
+                    comme sur le service offert aux clients.
+                </p>
+                <p>
+                    Sa calligraphie, son encadrement, ses ornements et incrustations sont autant d'éléments qui valoriseront
+                    le lieu, animeront l’ambiance et aideront au service.
+                </p>
+                <p>
+                    Spécialisée dans la réalisation d'ardoises sur-mesure,
+                    L'Ardoisienne vous conseille pour que celles-ci soient à l'image de votre établissement et
+                    valorisent sa décoration.
+                </p>
+                <p>
+                    Nos ardoises sont entièrement  exécutées à la main et peuvent être modifiées régulièrement à la demande
+                    (changement de menus, prix…) dans le cadre de notre contrat de maintenance.
+                </p>
+                <p>
+                    Pour une utilisation étendue et une plus grande flexibilité nous pouvons également intégrer des zones
+                    inscriptibles (pour le plat du jour ou les changements de prix fréquent…).
+                </p>
+                <p style="text-align: right">
+                    <a href="./medias/plaquette/LARDOISIENNE.pdf" target="_blank" class="btn ard-orange-button" style="font-size: 20px; padding: 14px 24px; margin: 5px;">Télécharger notre plaquette</a>
+                </p>
+            </div>
+        </div>
+    </div>
 
 </div>
 

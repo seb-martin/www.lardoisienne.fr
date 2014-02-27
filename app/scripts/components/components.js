@@ -2,6 +2,57 @@
 
 angular.module('lardoisienneApp')
 
+    .directive('ardPage', [function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/components/page.html',
+            replace: true,
+            transclude: true,
+            link: function (scope, element, attrs) {
+
+            }
+        };
+    }])
+    .directive('ardNavigation', ['$location', 'firebase', function($location, firebase) {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/components/navigation.html',
+            replace: true,
+            link: function(scope) {
+
+                scope.menu = firebase.$child('/header/menu');
+
+                scope.isActive = function(menuItem) {
+                    if(menuItem.menu) {
+                        return $location.path().indexOf(menuItem.location) === 0;
+                    } else {
+                        return menuItem.location === $location.path();
+                    }
+
+                };
+            }
+        };
+    }])
+    .directive('ardMasthead', [function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/components/masthead.html',
+            replace: true,
+            link: function (scope, element, attrs) {
+
+            }
+        };
+    }])
+    .directive('ardFooter', ['firebase', function(firebase) {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/components/footer.html',
+            replace: true,
+            link: function (scope) {
+                scope.data = firebase.$child('/footer');
+            }
+        };
+    }])
     .directive('menu', ['$location', 'firebase', function($location, firebase) {
         return {
             restrict: 'A',
@@ -45,16 +96,6 @@ angular.module('lardoisienneApp')
                 scope.logout = function () {
                     auth.logout();
                 };
-            }
-        };
-    }])
-    .directive('footer', ['firebase', function(firebase) {
-        return {
-            restrict: 'C',
-            templateUrl: 'views/components/footer.html',
-            replace: false,
-            link: function (scope) {
-                scope.data = firebase.$child('/footer');
             }
         };
     }])

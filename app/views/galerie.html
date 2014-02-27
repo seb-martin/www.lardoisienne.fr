@@ -1,11 +1,11 @@
-<div class="">
+<div class="container">
 
     <div ng-hide="galerie" class="jumbotron">
         <h2>Aucun cliché :'(</h2>
         <p>Aucun cliché disponible dans la galerie de ce thème.</p>
     </div>
 
-    <div ng-show="galerie">
+    <div ng-show="galerie" style="padding-top: 30px">
         <div class="btn-group btn-group-justified lead">
             <a ng-href="#/galerie/ardoises" class="btn ard-blue-button btn-lg" ng-class="{active: theme == 'ardoises'}">Ardoises</a>
             <a ng-href="#/galerie/chevalets" class="btn ard-orange-button btn-lg" ng-class="{active: theme == 'chevalets'}">Chevalets</a>

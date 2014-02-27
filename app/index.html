@@ -8,16 +8,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>L'Ardoisienne</title>
     <meta name="description" content="Spécialisée dans la fabrication d'ardoises personnalisées">
-    <meta name="viewport" content="width=device-width">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <!-- endbower -->
     <!-- endbuild -->
-    <!-- build:css({.tmp,app}) styles/main.css -->
+    <!-- build:css({.tmp,app}) styles/css/main.css -->
     <link rel="stylesheet" type="text/css" href="styles/css/main.css" />
     <!-- endbuild -->
+
+      <link href='http://fonts.googleapis.com/css?family=Purple+Purse&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+      <link href='http://fonts.googleapis.com/css?family=Eater&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+      <link href='http://fonts.googleapis.com/css?family=Sarina|Vampiro+One&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 
   </head>
   <body ng-app="lardoisienneApp">
@@ -25,22 +30,18 @@
       <p class="browsehappy">Vous utilisez un navigateur <strong>périmé</strong>. SVP <a href="http://browsehappy.com/">mettez à jour votre navigateur</a> pour améliorer votre expérience.</p>
     <![endif]-->
 
-
-    <div class="container">
-
-        <div class="header">
-            <div menu></div>
-        </div>
+    <!--http://getbootstrap.com/getting-started/#accessibility-->
+    <a href="#content" class="sr-only">Skip to content</a>
 
 
+   <ard-page>
+       <ard-navigation></ard-navigation>
 
-        <!-- Add your site or application content here -->
-        <div ng-view=""></div>
+       <div id="content" ng-view=""></div>
 
-        <div class="footer"></div>
+       <ard-footer></ard-footer>
 
-
-    </div>
+   </ard-page>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
@@ -69,7 +70,7 @@
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/less.js/dist/less-1.6.2.js"></script>
+    <script src="bower_components/less.js/dist/less-1.6.3.js"></script>
     <script src="bower_components/firebase/firebase.js"></script>
     <script src="bower_components/firebase-simple-login/firebase-simple-login.js"></script>
     <script src="bower_components/angular-mocks/angular-mocks.js"></script>

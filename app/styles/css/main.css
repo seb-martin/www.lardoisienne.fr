@@ -13,12 +13,12 @@ Mixins
 TAGS : Surcharge des balises
 */
 body {
-  padding-top: 20px;
+  padding-top: 50px;
   padding-bottom: 20px;
   /* Background */
   background: url(../../background.png) no-repeat;
   background-size: cover;
-  font-size: 14px;
+  font-size: 18px;
   color: #d8d8d8;
 }
 a {
@@ -168,11 +168,23 @@ créer des composants spécifiques à www.lardoisienne.fr.
 .ard-color-blue1 {
   color: #00aaad;
 }
+.ard-bb-blue {
+  border: 1px solid #00aaad;
+  border-radius: 6px;
+  padding: 12px;
+}
 .ard-blue-label {
   background-color: #00aaad;
 }
 .ard-blue-label[href]:hover,
 .ard-blue-label[href]:focus {
+  background-color: #008487;
+}
+.ard-bg-blue {
+  color: #d8d8d8;
+  background-color: #00aaad;
+}
+a.ard-bg-blue:hover {
   background-color: #008487;
 }
 .ard-blue-button {
@@ -219,11 +231,23 @@ fieldset[disabled] .ard-blue-button.active {
 .ard-color-green1 {
   color: #8bc63e;
 }
+.ard-bb-green {
+  border: 1px solid #8bc63e;
+  border-radius: 6px;
+  padding: 12px;
+}
 .ard-green-label {
   background-color: #8bc63e;
 }
 .ard-green-label[href]:hover,
 .ard-green-label[href]:focus {
+  background-color: #618c2d;
+}
+.ard-bg-green {
+  color: #d8d8d8;
+  background-color: #8bc63e;
+}
+a.ard-bg-green:hover {
   background-color: #618c2d;
 }
 .ard-green-button {
@@ -270,11 +294,23 @@ fieldset[disabled] .ard-green-button.active {
 .ard-color-orange1 {
   color: #f7931d;
 }
+.ard-bb-orange {
+  border: 1px solid #f7931d;
+  border-radius: 6px;
+  padding: 12px;
+}
 .ard-orange-label {
   background-color: #f7931d;
 }
 .ard-orange-label[href]:hover,
 .ard-orange-label[href]:focus {
+  background-color: #a3531b;
+}
+.ard-bg-orange {
+  color: #d8d8d8;
+  background-color: #f7931d;
+}
+a.ard-bg-orange:hover {
   background-color: #a3531b;
 }
 .ard-orange-button {
