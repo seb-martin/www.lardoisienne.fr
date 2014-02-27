@@ -1,11 +1,11 @@
 <div class="container" ng-controller="ContactCtrl">
 
     <div class="row">
-        <div class="col-xs-6">
+        <div class="col-md-6">
             <section id="atelier-contact">
                 <h2 class="ard-color-blue1"><i class="glyphicon glyphicon-home"></i> {{contact.atelier.titre}}</h2>
 
-                <address>
+                <address class="ard-bb-blue">
                     <ard-editable-list list="contact.atelier.adresse" new-value="'Nouvelle ligne'">
                         <ard-editable-list-item ng-repeat="ligne in contact.atelier.adresse | orderByPriority">
                             <ard-editable-text text="contact.atelier.adresse[$index]"> {{ligne}}</ard-editable-text>
@@ -13,7 +13,7 @@
                     </ard-editable-list>
 
                 </address>
-                <address>
+                <address class="ard-bb-blue">
                     <ard-editable-text text='contact.atelier.coordonnees.tel' icon-class="glyphicon glyphicon-phone-alt">
                         {{contact.atelier.coordonnees.tel}}
                     </ard-editable-text>
@@ -31,7 +31,7 @@
             </section>
 
             <section id="localisation">
-                <address>
+                <address class="ard-bb-blue">
                     <ard-editable-list list="contact.atelier.localisation.transports" new-value="'<transport> <n° ligne> - <station>'">
                         <ard-editable-list-item ng-repeat="transport in contact.atelier.localisation.transports">
                             <ard-editable-text text='contact.atelier.localisation.transports[$index]' icon-class="glyphicon glyphicon-plane"> {{transport}}</ard-editable-text>
@@ -45,7 +45,7 @@
             </section>
 
             <section id="infos-legales">
-                <address>
+                <address class="ard-bb-blue">
 
                     <ard-editable-list list="contact.atelier.infosLegales" new-value="'<titre> : <info>'">
                         <ard-editable-list-item ng-repeat="info in contact.atelier.infosLegales">
@@ -56,10 +56,10 @@
                 </address>
             </section>
         </div>
-        <div class="col-xs-6">
+        <div class="col-md-6">
             <section ng-repeat="individu in contact.individus">
                 <h2 class="ard-color-green1"><i class="glyphicon glyphicon-user"></i> {{individu.nom}}</h2>
-                <address>
+                <address class="ard-bb-green">
                     <ard-editable-text text="individu.tel" icon-class="glyphicon glyphicon-phone">
                         {{individu.tel}}
                     </ard-editable-text>
@@ -73,7 +73,7 @@
             <section id="message">
                 <h2 class="ard-color-orange1"><i class="glyphicon glyphicon-send"></i> Une info ?</h2>
 
-                <div ard-send-mail></div>
+                <div ard-send-mail class="ard-bb-orange"></div>
             </section>
         </div>
 
