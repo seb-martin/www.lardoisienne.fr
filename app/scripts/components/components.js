@@ -262,6 +262,7 @@ angular.module('lardoisienneApp')
                         function (reponse) {
                             scope.reponse = reponse;
                             delete scope.data.message;
+                            scope.messageForm.$setPristine();
                         },
                         function (reponse) {
                             scope.reponse = reponse;
