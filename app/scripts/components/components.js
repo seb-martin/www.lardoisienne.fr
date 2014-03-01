@@ -43,6 +43,14 @@ angular.module('lardoisienneApp')
             }
         };
     }])
+    .directive('ardHeader', [function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'views/components/header.html',
+            replace: true,
+            transclude: true
+        }
+    }])
     .directive('ardFooter', ['firebase', function(firebase) {
         return {
             restrict: 'E',
