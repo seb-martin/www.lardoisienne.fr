@@ -7,10 +7,7 @@ angular.module('lardoisienneApp')
             restrict: 'E',
             templateUrl: 'views/components/page.html',
             replace: true,
-            transclude: true,
-            link: function (scope, element, attrs) {
-
-            }
+            transclude: true
         };
     }])
     .directive('ardNavigation', ['$location', 'firebase', function($location, firebase) {
@@ -37,10 +34,7 @@ angular.module('lardoisienneApp')
         return {
             restrict: 'E',
             templateUrl: 'views/components/masthead.html',
-            replace: true,
-            link: function (scope, element, attrs) {
-
-            }
+            replace: true
         };
     }])
     .directive('ardHeader', [function() {
@@ -49,7 +43,7 @@ angular.module('lardoisienneApp')
             templateUrl: 'views/components/header.html',
             replace: true,
             transclude: true
-        }
+        };
     }])
     .directive('ardFooter', ['firebase', function(firebase) {
         return {

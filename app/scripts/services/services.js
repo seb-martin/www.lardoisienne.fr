@@ -4,13 +4,27 @@
 
 angular.module('lardoisienneApp')
     .constant('firebaseLocation', 'https://lardoisienne.firebaseio.com')
+    .constant('api500pxLocation', 'https://api.500px.com/v1')
+    .constant('api500pxConsumerKey', 'c3tGzQCO86xaC09ljTCV8hm4oNO0zeV0EojqTYIT')
 
     .factory('firebase', ['$firebase', 'firebaseLocation', function($firebase, firebaseLocation) {
         var ref = new Firebase(firebaseLocation);
         return $firebase(ref);
     }])
 
+    .factory('api500px', ['$resource', 'api500pxLocation', 'api500pxConsumerKey', function($resource, api500pxLocation, api500pxConsumerKey) {
+        var apiResource = $resource(api500pxLocation + '/:resourcePath',
+            {'consumer_key': api500pxConsumerKey},
+            {photos:{method: 'GET', params:{feature:'user', sort:'created_at', 'image_size':2, username:'sebmartin94'}}}
+        );
 
+
+        return {
+            photos: function () {
+                return apiResource.photos({resourcePath:'photos'});
+            }
+        };
+    }])
 
     .factory('AuthService', ['$rootScope', 'firebaseLocation', function($rootScope, firebaseLocation) {
         var data = {

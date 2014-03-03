@@ -1,12 +1,41 @@
 <ard-header>Galerie</ard-header>
 
+<div ng-hide="photos" class="container">
+    <div class="bordered-box">
+        <h2>Aucun cliché :'(</h2>
+        <p>Aucun cliché disponible dans la galerie.</p>
+    </div>
+</div>
+
+<div ng-show="photos" class="container" style="padding-top: 30px">
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li ng-repeat="cliche in  photos.photos" data-target="#carousel" data-slide-to="{{$index}}" ng-class="{active: $index === 0}" id="indicator{{$index}}"></li>
+        </ol>
+
+        <!-- Wrapper for slides-->
+        <div class="carousel-inner">
+            <div ng-repeat="cliche in  photos.photos" class="item" ng-class="{active: $index === 0}" id="slide{{$index}}">
+                <img ng-src="{{cliche.image_url}}" alt="{{cliche.title}}"/>
+            </div>
+        </div>
+
+        <!-- Controls -->
+        <a class="left carousel-control" data-slide="prev" id="previousCmd" ng-click="previousSlide()">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" data-slide="next" id="nextCmd" ng-click="nextSlide()">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</div>
+
 <div class="container">
 
-    <div ng-hide="galerie" class="jumbotron">
-        <h2>Aucun cliché :'(</h2>
-        <p>Aucun cliché disponible dans la galerie de ce thème.</p>
-    </div>
 
+<!--
     <div ng-show="galerie" style="padding-top: 30px">
         <div class="btn-group btn-group-justified lead">
             <a ng-href="#/galerie/ardoises" class="btn ard-blue-button btn-lg" ng-class="{active: theme == 'ardoises'}">Ardoises</a>
@@ -16,12 +45,12 @@
 
         <div id="carousel" class="carousel slide lead" data-ride="carousel">
 
-            <!-- Indicators -->
+            &lt;!&ndash; Indicators &ndash;&gt;
             <ol class="carousel-indicators">
                 <li ng-repeat="cliche in  galerie" data-target="#carousel" data-slide-to="{{$index}}" ng-class="{active: $index === 0}" id="indicator{{$index}}"></li>
             </ol>
 
-            <!-- Wrapper for slides-->
+            &lt;!&ndash; Wrapper for slides&ndash;&gt;
             <div class="carousel-inner">
                 <div ng-repeat="cliche in  galerie" class="item" ng-class="{active: $index === 0}" id="slide{{$index}}">
                     <img ng-src="{{cliche.imgsrc}}" alt="{{cliche.title}}"/>
@@ -34,7 +63,7 @@
                 </div>
             </div>
 
-            <!-- Controls -->
+            &lt;!&ndash; Controls &ndash;&gt;
             <a class="left carousel-control" data-slide="prev" id="previousCmd" ng-click="previousSlide()">
                 <span class="glyphicon glyphicon-chevron-left"></span>
             </a>
@@ -49,5 +78,6 @@
             <a ng-href="#/galerie/customisations" class="btn ard-green-button btn-lg" ng-class="{active: theme == 'customisations'}">Customisation & Vitrines</a>
         </div>
     </div>
+-->
 
 </div>

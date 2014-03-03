@@ -127,9 +127,6 @@ aux couleurs de www.lardoisienne.fr
   color: #999999;
 }
 .carousel {
-  border: 1px solid #ee1d23;
-  border-radius: 6px;
-  padding: 12px;
   padding: 3px;
 }
 .carousel > .carousel-inner > .item > img {

@@ -2,7 +2,10 @@
 
 angular.module('lardoisienneApp').controller(
     'GalerieCtrl',
-    ['$scope', '$http', 'theme', 'GalerieService', function ($scope, $http, theme, GalerieService) {
+    ['$scope', '$http', 'theme', 'GalerieService', 'api500px', function ($scope, $http, theme, GalerieService, api500px) {
+
+        $scope.photos = api500px.photos();
+
 
         var selectTheme = function(theme){
             $scope.theme = theme;
