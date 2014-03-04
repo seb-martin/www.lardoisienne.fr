@@ -15,7 +15,7 @@ angular.module('lardoisienneApp')
     .factory('api500px', ['$resource', 'api500pxLocation', 'api500pxConsumerKey', function($resource, api500pxLocation, api500pxConsumerKey) {
         var apiResource = $resource(api500pxLocation + '/:resourcePath',
             {'consumer_key': api500pxConsumerKey},
-            {photos:{method: 'GET', params:{feature:'user', sort:'created_at', 'image_size':2, username:'sebmartin94'}}}
+            {photos:{method: 'GET', params:{feature:'user', sort:'created_at', 'image_size':3, username:'sebmartin94'}}}
         );
 
 
