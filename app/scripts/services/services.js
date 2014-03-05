@@ -23,7 +23,7 @@ angular.module('lardoisienneApp')
     })
 
     .factory('firebase', ['$firebase', 'firebaseContext', function($firebase, firebaseContext) {
-        var ref = new Firebase(firebaseLocation);
+        var ref = new Firebase(firebaseContext.location);
         return $firebase(ref);
     }])
 
