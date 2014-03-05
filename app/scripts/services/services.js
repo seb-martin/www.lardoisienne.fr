@@ -3,28 +3,41 @@
 'use strict';
 
 angular.module('lardoisienneApp')
-    .constant('firebaseLocation', 'https://lardoisienne.firebaseio.com')
-    .constant('api500pxLocation', 'https://api.500px.com/v1')
-    .constant('api500pxConsumerKey', 'c3tGzQCO86xaC09ljTCV8hm4oNO0zeV0EojqTYIT')
+    .constant('firebaseContext', {location: 'https://lardoisienne.firebaseio.com'})
 
-    .factory('firebase', ['$firebase', 'firebaseLocation', function($firebase, firebaseLocation) {
+    .constant('api500pxContext', {
+        location: 'https://api.500px.com/v1',
+        endpoints: {
+            photo: {
+                path: '/photos/:photoId/:command',
+                paramsDefault: {
+                    'consumer_key': 'c3tGzQCO86xaC09ljTCV8hm4oNO0zeV0EojqTYIT',
+                    'username': 'sebmartin94',
+                    'feature': 'user'
+                },
+                actions:{
+                    query:{method: 'GET', params:{sort:'created_at', 'image_size':3}, isArray:false}
+                }
+            }
+        }
+    })
+
+    .factory('firebase', ['$firebase', 'firebaseContext', function($firebase, firebaseContext) {
         var ref = new Firebase(firebaseLocation);
         return $firebase(ref);
     }])
 
-    .factory('api500px', ['$resource', 'api500pxLocation', 'api500pxConsumerKey', function($resource, api500pxLocation, api500pxConsumerKey) {
-        var apiResource = $resource(api500pxLocation + '/:resourcePath',
-            {'consumer_key': api500pxConsumerKey},
-            {photos:{method: 'GET', params:{feature:'user', sort:'created_at', 'image_size':3, username:'sebmartin94'}}}
+    .factory('api500px', ['$resource', 'api500pxContext', function($resource, api500pxContext) {
+        var photoEndpoint = $resource(
+            api500pxContext.location + api500pxContext.endpoints.photo.path,
+            api500pxContext.endpoints.photo.paramsDefault,
+            api500pxContext.endpoints.photo.actions
         );
 
-
         return {
-            photos: function () {
-                return apiResource.photos({resourcePath:'photos'});
-            }
+            photos: photoEndpoint
         };
-    }])
+    } ])
 
     .factory('AuthService', ['$rootScope', 'firebaseLocation', function($rootScope, firebaseLocation) {
         var data = {
