@@ -4,7 +4,15 @@ angular.module('lardoisienneApp').controller(
     'GalerieCtrl',
     ['$scope', '$http', 'theme', 'GalerieService', 'api500px', function ($scope, $http, theme, GalerieService, api500px) {
 
-        $scope.photos = api500px.photos.query();
+        var PhotoEndpoint = api500px.photos;
+
+        $scope.photos = PhotoEndpoint.query();
+
+        $scope.displayCliche = function(photoId) {
+            $scope.clicheDisplayed = PhotoEndpoint.get({id: photoId}, function() {
+                angular.element('#clicheModal').modal('show');
+            })
+        };
 
 
         var selectTheme = function(theme){

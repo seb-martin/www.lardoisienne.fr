@@ -1,22 +1,31 @@
 <ard-header style="margin-bottom: 20px">Galerie</ard-header>
 
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="clicheModal" tabindex="-1" role="dialog" aria-hidden="true" >
 <!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
-    <div class="modal-dialog">
-        <div class="modal-content">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content"  style="background: url(./background.png); background-size: cover;">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <!--<h4 class="modal-title" id="myModalLabel">Modal title</h4>-->
+                <button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true">
+                    <img src="./images/vis-small.png" alt=""/>
+                </button>
+                <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
+                    <img src="./images/vis-small.png" alt=""/>
+                </button>
+
+                &nbsp;
+                <span ng-show="clicheDisplayed.photo.name && clicheDisplayed.photo.name != 'Untitled'" class="h3" style="text-align: center;">
+                    {{clicheDisplayed.photo.name}} <small>{{clicheDisplayed.photo.description}}</small>
+                </span>
             </div>
             <div class="modal-body">
+                <img ng-src="{{clicheDisplayed.photo.image_url}}" alt="{{clicheDisplayed.photo.name}}"/>
+<!--
                 <div id="carousel" class="carousel slide" data-ride="carousel">
 
-                    <!-- Indicators -->
                     <ol class="carousel-indicators">
                         <li ng-repeat="cliche in  photos.photos" data-target="#carousel" data-slide-to="{{$index}}" ng-class="{active: $index === 0}" id="indicator{{$index}}"></li>
                     </ol>
 
-                    <!-- Wrapper for slides-->
                     <div class="carousel-inner">
                         <div ng-repeat="cliche in  photos.photos" class="item" ng-class="{active: $index === 0}" id="slide{{$index}}">
                             <img ng-src="{{cliche.image_url}}" alt="{{cliche.name}}"/>
@@ -29,7 +38,6 @@
                         </div>
                     </div>
 
-                    <!-- Controls -->
                     <a class="left carousel-control" data-slide="prev" id="previousCmd" ng-click="previousSlide()">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
@@ -37,13 +45,16 @@
                         <span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
                 </div>
-            </div>
-<!--
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
 -->
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true">
+                    <img src="./images/vis-small.png" alt=""/>
+                </button>
+                <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
+                    <img src="./images/vis-small.png" alt=""/>
+                </button>
+            </div>
         </div>
     </div>
 </div>
@@ -62,7 +73,7 @@
     <div class="row bordered-box">
         <div ng-repeat="cliche in photos.photos" class="col-xs-6 col-md-4">
             <div class="thumbnail" style="background-color: #3f3f3f;">
-                <a data-toggle="modal" data-target="#myModal">
+                <a ng-click="displayCliche(cliche.id)">
                     <img ng-src="{{cliche.image_url}}" alt="{{cliche.name}}"/>
                 </a>
                 <div class="caption" style="font-family: 'Vampiro One', cursive;color: #d8d8d8;">
