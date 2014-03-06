@@ -7,12 +7,12 @@
     } ],
     "atelier" : {
       "localisation" : {
-        "geolocalisationUrl" : "http://fr.mappy.com/#/M2/Ls/TSearch/SL'Ardoisienne+-+22+Rue+Charles+Schmidt%2C+93400+Saint-Ouen/N-105.585,-51.62314,2.33295,48.90485/Z10/",
+        "geolocalisationUrl" : "http://fr.mappy.com/#/0/M2/Ls/TSearch/SL'Ardoisienne+-+22+Rue+Charles+Schmidt%2C+93400+Saint-Ouen/N-105.585,-51.62314,2.33294,48.90486/Z10/",
         "transports" : [ "Métro 13 - Garibaldi", "Bus 137 - Garibaldi", "Bus 85 - Ernest Renan" ]
       },
-      "adresse" : [ "22 rue Charles Schmidt", "93400 Saint-Ouin", "FRANCE" ],
+      "adresse" : [ "22 rue Charles Schmidt", "93400 Saint-Ouin" ],
       "titre" : "Atelier",
-      "infosLegales" : [ "APE : 7311Z", "Contrat d'Assurance : 116555622F", "Siret : 488 223 124 RCS Bobigny" ],
+      "infosLegales" : [ "Siret : 488 223 124 00022", "APE : 7311Z", "Contrat d'Assurance : 116555622F" ],
       "coordonnees" : {
         "mail" : "info@lardoisienne.fr",
         "tel" : "09 56 74 76 67",
@@ -21,7 +21,7 @@
     }
   },
   "footer" : [ [ "L'Ardoisienne", "22 rue Charles Schmidt", "93400 Saint-Ouen" ], [ "tél. 09 51 74 76 67", "mob. 06 22 20 11 03", "info@lardoisienne.fr" ] ],
-  "galerie" : {
+  "_galerie" : {
     "customisations" : [ {
       "titre" : "Le Caribou",
       "description" : "Fresque",
@@ -47,7 +47,7 @@
       "location" : "/",
       "titre" : "Accueil"
     }, {
-      "menu" : [ {
+      "_menu" : [ {
         "location" : "/galerie/ardoises",
         "titre" : "Ardoises"
       }, {

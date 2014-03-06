@@ -2,7 +2,7 @@
 
 angular.module('lardoisienneApp').controller(
     'GalerieCtrl',
-    ['$scope', '$http', 'theme', 'GalerieService', 'api500px', function ($scope, $http, theme, GalerieService, api500px) {
+    ['$scope', '$http', 'api500px', function ($scope, $http, api500px) {
 
         var PhotoEndpoint = api500px.photos;
 
@@ -13,27 +13,6 @@ angular.module('lardoisienneApp').controller(
                 angular.element('#clicheModal').modal('show');
             })
         };
-
-
-        var selectTheme = function(theme){
-            $scope.theme = theme;
-            $scope.galerie = new GalerieService(theme);
-        };
-
-        $scope.selectTheme = function(theme){
-            selectTheme(theme);
-        };
-
-        $scope.previousSlide = function() {
-            angular.element('#carousel').carousel('prev');
-        };
-
-        $scope.nextSlide = function() {
-            angular.element('#carousel').carousel('next');
-        };
-
-        // Initialisation
-        selectTheme(theme);
 
     } ]
 );

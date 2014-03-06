@@ -70,24 +70,6 @@ angular.module('lardoisienneApp')
 
         return  data;
     }])
-    .factory('GalerieService', ['firebase', function(firebase) {
-        return function(theme) {
-            var result;
-            var query = '/galerie';
-            if(theme) {
-                query += '/' + theme;
-                result = firebase.$child(query);
-            } else {
-                var galerie = firebase.$child(query);
-                result = [];
-                angular.forEach(galerie, function (clichesTheme) {
-                    result.push(clichesTheme);
-                });
-            }
-
-            return result;
-        };
-    }])
     .factory('SendMailService', ['$q', '$http', function($q, $http) {
 //        var sendMailUrl = 'http://www.lardoisienne.fr/seb/send_mail.php';
         // DID changer l'url pour ./services/send_mail.php
