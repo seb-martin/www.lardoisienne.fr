@@ -385,9 +385,19 @@ créer des composants spécifiques à www.lardoisienne.fr.
 
 /* Custom page header */
 .header {
-  /*border-bottom: 1px solid #EE1D23;*/
-  padding-bottom: 19px;
+  background: url(../../masthead-background.png);
+  background-size: cover;
+  padding-top: 40px;
+  padding-bottom: 40px;
 
+  & h1 {
+    font-family: 'Vampiro One',
+    cursive;color: @ard-orange1;
+
+    & small{
+      color: @ard-gris1;
+    }
+  }
 }
 
 
