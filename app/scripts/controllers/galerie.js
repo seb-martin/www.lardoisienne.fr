@@ -1,3 +1,4 @@
+/*global $:false */
 'use strict';
 
 angular.module('lardoisienneApp').controller(
