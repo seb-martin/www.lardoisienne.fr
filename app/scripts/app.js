@@ -5,7 +5,8 @@ angular.module('lardoisienneApp', [
         'ngResource',
         'ngSanitize',
         'ngRoute',
-        'firebase'
+        'firebase',
+        '500px'
     ])
 
 

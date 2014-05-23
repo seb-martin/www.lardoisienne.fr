@@ -1,87 +1,42 @@
-<ard-header style="margin-bottom: 20px">Galerie</ard-header>
+<ard-header style="margin-bottom: 20px">
+    <span ng-hide="hasName(displayedCliche.photo) || hasDescription(displayedCliche.photo)">Galerie</span>
+    <span ng-show="hasName(displayedCliche.photo)">{{displayedCliche.photo.name}}</span>
+    <span ng-show="hasDescription(displayedCliche.photo)"><small>{{displayedCliche.photo.description}}</small></span>
+</ard-header>
 
-<div class="modal fade" id="clicheModal" tabindex="-1" role="dialog" aria-hidden="true" >
-<!--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">-->
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content"  style="background: url(./background.png); background-size: cover;">
-            <div class="modal-header">
-                <button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true">
-                    <img src="./images/vis-small.png" alt=""/>
-                </button>
-                <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
-                    <img src="./images/vis-small.png" alt=""/>
-                </button>
+<div>
 
-                &nbsp;
-                <span ng-show="clicheDisplayed.photo.name && clicheDisplayed.photo.name != 'Untitled'" class="h3" style="text-align: center;">
-                    {{clicheDisplayed.photo.name}} <small>{{clicheDisplayed.photo.description}}</small>
-                </span>
+    <div id="photo" ng-show="displayedCliche">
+        <div class="row" style="text-align: center">
+            <img ng-src="{{displayedCliche.photo.image_url}}" alt=""
+                 ng-click="hideCliche()"
+                 class="ard-bb-orange" style="padding: 0; left: auto; right: auto; cursor: pointer; max-width: 100%; max-height: 70%"/>
+        </div>
+    </div>
+
+    <div id="zero-vignettes" ng-hide="vignettes" class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8 bordered-box" style="text-align: center;">
+
+                <h2>Aucun cliché :'(</h2>
+                <p class="lead">Aucun cliché disponible dans la galerie.</p>
             </div>
-            <div class="modal-body">
-                <img ng-src="{{clicheDisplayed.photo.image_url}}" alt="{{clicheDisplayed.photo.name}}"/>
-<!--
-                <div id="carousel" class="carousel slide" data-ride="carousel">
+        </div>
+    </div>
 
-                    <ol class="carousel-indicators">
-                        <li ng-repeat="cliche in  photos.photos" data-target="#carousel" data-slide-to="{{$index}}" ng-class="{active: $index === 0}" id="indicator{{$index}}"></li>
-                    </ol>
+    <div id="vignettes" ng-show="vignettes && !displayedCliche" class="container" style="background: url(./masthead-background.png); background-size: cover;">
+        <div class="row bordered-box">
+            <div ng-repeat="cliche in vignettes.photos" class="col-xs-6 col-md-4">
+                <div class="thumbnail" style="background-color: #050505">
+                    <img ng-click="displayCliche(cliche.id)" ng-src="{{cliche.image_url}}" alt="{{cliche.name}}" height="280px" width="280px" style=" cursor: pointer; "/>
 
-                    <div class="carousel-inner">
-                        <div ng-repeat="cliche in  photos.photos" class="item" ng-class="{active: $index === 0}" id="slide{{$index}}">
-                            <img ng-src="{{cliche.image_url}}" alt="{{cliche.name}}"/>
-                            <div class="carousel-caption">
-                                <h1>{{cliche.name}}</h1>
-
-                                <h3>{{cliche.description}}</h3>
-                            </div>
-
-                        </div>
+                    <div class="caption" ng-show="hasName(cliche) || hasDescription(cliche)" style="font-family: 'Vampiro One', cursive;color: #d8d8d8;">
+                        <h3 ng-show="hasName(cliche)">{{cliche.name}}</h3>
+                        <p ng-show="hasDescription(cliche)">{{cliche.description}}</p>
                     </div>
-
-                    <a class="left carousel-control" data-slide="prev" id="previousCmd" ng-click="previousSlide()">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                    <a class="right carousel-control" data-slide="next" id="nextCmd" ng-click="nextSlide()">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                </div>
--->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="close pull-left" data-dismiss="modal" aria-hidden="true">
-                    <img src="./images/vis-small.png" alt=""/>
-                </button>
-                <button type="button" class="close pull-right" data-dismiss="modal" aria-hidden="true">
-                    <img src="./images/vis-small.png" alt=""/>
-                </button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div ng-hide="photos" class="container">
-    <div class="row">
-        <div class="col-md-offset-2 col-md-8 bordered-box" style="text-align: center;">
-
-            <h2>Aucun cliché :'(</h2>
-            <p class="lead">Aucun cliché disponible dans la galerie.</p>
-        </div>
-    </div>
-</div>
-
-<div ng-show="photos" class="container" style="background: url(./masthead-background.png); background-size: cover;">
-    <div class="row bordered-box">
-        <div ng-repeat="cliche in photos.photos" class="col-xs-6 col-md-4">
-            <div class="thumbnail" style="background-color: #3f3f3f;">
-                <a ng-click="displayCliche(cliche.id)">
-                    <img ng-src="{{cliche.image_url}}" alt="{{cliche.name}}"/>
-                </a>
-                <div class="caption" style="font-family: 'Vampiro One', cursive;color: #d8d8d8;">
-                    <h3 ng-show="cliche.name && cliche.name != 'Untitled'">{{cliche.name}}</h3>
-                    <p>{{cliche.description}}</p>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
+</div>
