@@ -278,10 +278,7 @@ angular.module('lardoisienneApp')
     .directive('ardFacebook', [function() {
         return {
             restrict: 'E',
-            template: '<a href="{{followurl}}" target="_blank">' +
-                '<img src="{{icon}}" alt="Facebook Icon"/>' +
-                '<span ng-transclude="true"></span>' +
-                '</a>',
+            template: '<a href="{{followurl}}" target="_blank"><img src="{{icon}}" alt="Facebook Icon"/><span ng-transclude="true"></span></a>',
             replace: true,
             transclude:true,
             scope: {
