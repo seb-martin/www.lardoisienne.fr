@@ -16,7 +16,7 @@ body {
   padding-top: 50px;
   padding-bottom: 20px;
   /* Background */
-  background: url(../../background.png) no-repeat;
+  background: url(../../images/background.png) no-repeat;
   background-size: cover;
   font-size: 18px;
   color: #d8d8d8;
@@ -354,9 +354,16 @@ fieldset[disabled] .ard-orange-button.active {
   width: 32px;
   vertical-align: middle;
 }
+/* Custom masthead */
+.masthead {
+  background: url(../../images/masthead-background.png);
+  background-size: cover;
+  padding-top: 200px;
+  padding-bottom: 200px;
+}
 /* Custom page header */
 .header {
-  background: url(../../masthead-background.png);
+  background: url(../../images/header-background.jpg);
   background-size: cover;
   padding-top: 40px;
   padding-bottom: 40px;
@@ -368,15 +375,6 @@ fieldset[disabled] .ard-orange-button.active {
 .header h1 small {
   color: #f5f5f5;
 }
-/* Make the masthead heading the same height as the navigation */
-/*
-.header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
-}
-*/
 /* Custom page footer */
 .footer {
   margin-top: 19px;
