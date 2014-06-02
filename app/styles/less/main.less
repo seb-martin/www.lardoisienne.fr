@@ -1,3 +1,29 @@
+/**
+* Typographie
+*/
+
+@font-face {
+  font-family: Hero;
+  src: url(fonts/hero/Hero.otf);
+}
+
+@font-face {
+  font-family: Hero Light;
+  src: url(fonts/hero/Hero%20Light.otf);
+}
+
+@font-face {
+  font-family: 'Sarina';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Sarina'), local('Sarina-Regular'), url(http://themes.googleusercontent.com/static/fonts/sarina/v3/RRqEugSKCLP8ArQNKVWWGA.woff) format('woff');
+}
+@font-face {
+  font-family: 'Vampiro One';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Vampiro One'), local('VampiroOne-Regular'), url(http://fonts.gstatic.com/s/vampiroone/v4/Ho2Xld8UbQyBA8XLxF1_NdIh4imgI8P11RFo6YPCPC0.woff) format('woff');
+}
 
 
 /*
@@ -401,9 +427,37 @@ créer des composants spécifiques à www.lardoisienne.fr.
 .masthead {
   background: url(../../images/masthead-background.png);
   background-size: cover;
+  text-align: center;
   padding-top: 200px;
   padding-bottom: 200px;
+
+  & p {
+    font-size: 28px;
+    font-family: "Vampiro One", cursive;
+    color: @ard-orange1;
+
+    .big {
+      font-size: 40px;
+    }
+  }
+
+  .masthead-main {
+    background: url(../../images/masthead-main.png);
+    margin-left: auto;
+    margin-right: auto;
+    height: 93px;
+    width: 110px;
+  }
+
+  .masthead-logo {
+    background: url(../../images/masthead-logo.png);
+    margin-left: auto;
+    margin-right: auto;
+    height: 151px;
+    width: 737px;
+  }
 }
+
 
 
 /* Custom page header */
@@ -414,8 +468,8 @@ créer des composants spécifiques à www.lardoisienne.fr.
   padding-bottom: 40px;
 
   & h1 {
-    font-family: 'Vampiro One',
-    cursive;color: @ard-orange1;
+    font-family: 'Vampiro One', cursive;
+    color: @ard-orange1;
 
     & small{
       color: @ard-gris1;
