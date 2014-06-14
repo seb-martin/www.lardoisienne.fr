@@ -42,6 +42,7 @@ body {
   background: url(../../images/background.png) no-repeat;
   background-size: cover;
   font-size: 18px;
+  font-family: Hero, cursive;
   color: #d8d8d8;
 }
 a {
