@@ -1,4 +1,6 @@
-<div class="bordered-box container" style="padding: 30px" ng-controller="LoginCtrl">
+<ard-header style="margin-bottom: 20px">Connexion</ard-header>
+
+<div class="container bordered-box" style="padding: 30px;" ng-controller="LoginCtrl">
     <form role="form" class="form-horizontal" ng-submit="login()" ng-hide="user.id">
         <div class="form-group">
             <label for="email" class="col-sm-offset-2 col-sm-3">Email</label>
@@ -30,17 +32,15 @@
     </form>
 
     <form ng-show="user.id" ng-submit="logout()">
-        <div class="">
-<!--
-            <span class="col-sm-8 h1">Vous êtes authentifié comme {{user.email}}</span>
-            <span class="col-sm-4"><button type="submit" class="btn ard-orange-button">Logout</button></span>
--->
-            <div>
-                <h1 style="text-align: center">Bienvenue {{user.email}}</h1>
+        <div>
+            <h1 style="text-align: center; padding-bottom: 20px">Bienvenue {{user.email}}</h1>
+            <div class="btn-toolbar" role="toolbar" style="padding-bottom: 20px">
+                <div class="btn-group btn-group-lg btn-group-justified">
+                    <a ng-repeat="item in menu" ng-href="#{{item.location}}" type="button" class="btn" ng-class="menuButtonClasses[$index % menuButtonClasses.length]">{{item.titre}}</a>
+                </div>
             </div>
             <div>
                 <button type="submit" class="btn ard-orange-button center-block">Déconnexion</button>
-
             </div>
         </div>
     </form>

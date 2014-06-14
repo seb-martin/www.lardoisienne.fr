@@ -1,23 +1,30 @@
 'use strict';
 
 angular.module('lardoisienneApp')
-    .controller('LoginCtrl', ['$scope', 'AuthService', function ($scope, auth) {
+    .controller('LoginCtrl', ['$scope', 'AuthService', 'firebase', function ($scope, auth, firebase) {
 
         var failPopover = angular.element('#loginButton');
 
         var update = function(){
             $scope.user = auth.user;
             $scope.loginFail = auth.loginFail;
+
         };
+
+        $scope.menuButtonClasses = [ 'ard-green-button', 'ard-blue-button' ];
 
         $scope.$on('auth:loginSuccess', function(/*event, user*/) {
             $scope.$apply(function () {
                 update();
+
+                $scope.menu = firebase.$child('/header/menu');
             });
         });
         $scope.$on('auth:loginFail', function(/*event, error*/) {
             $scope.$apply(function () {
                 update();
+
+                $scope.menu = undefined;
             });
         });
         $scope.$on('auth:logout', function() {
