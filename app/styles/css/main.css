@@ -384,6 +384,13 @@ fieldset[disabled] .ard-orange-button.active {
   background-color: #3f3f3f;
 }
 /* Classes d'icônes */
+.ard-textual-logo {
+  background: url("../../images/ard-logo-148x30.png") no-repeat;
+  display: inline-block;
+  height: 30px;
+  width: 148px;
+  vertical-align: middle;
+}
 .ard-facebook-logo {
   background: url("../../images/facebook-icone-5610-32.png") no-repeat;
   display: inline-block;
