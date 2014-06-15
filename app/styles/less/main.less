@@ -2,13 +2,14 @@
 * Typographie
 */
 
+
 @font-face {
-  font-family: Hero;
+  font-family: Hero, sans-serif;
   src: url(../../fonts/hero/Hero.otf);
 }
 
 @font-face {
-  font-family: Hero Light;
+  font-family: Hero Light, sans-serif;
   src: url(../../fonts/hero/Hero%20Light.otf);
 }
 
@@ -80,7 +81,7 @@ body {
   background-size: cover;
 
   font-size: 18px;
-  font-family: Hero;
+  font-family: Hero, sans-serif;
   color: @ard-gris3;
 
 }
@@ -244,11 +245,11 @@ aux couleurs de www.lardoisienne.fr
   background-color: @ard-gris7;
 
   & .caption {
-    font-family: Hero Light;
+    font-family: Hero Light, sans-serif;
     color: @ard-gris3;
     text-align: center;
     &>h3 {
-      font-family: Hero;
+      font-family: Hero, sans-serif;
     }
   }
 }
@@ -475,8 +476,9 @@ créer des composants spécifiques à www.lardoisienne.fr.
 }
 
 #vignettes {
-  background: url(../../images/masthead-background.png);
+  background: url(../../images/background-inverse.png);
   background-size: cover;
+  border-radius: 6px;
 }
 
 /* Custom page header */

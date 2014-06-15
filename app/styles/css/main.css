@@ -2,11 +2,11 @@
 * Typographie
 */
 @font-face {
-  font-family: Hero;
+  font-family: Hero, sans-serif;
   src: url(../../fonts/hero/Hero.otf);
 }
 @font-face {
-  font-family: Hero Light;
+  font-family: Hero Light, sans-serif;
   src: url(../../fonts/hero/Hero%20Light.otf);
 }
 @font-face {
@@ -422,8 +422,9 @@ fieldset[disabled] .ard-orange-button.active {
   width: 737px;
 }
 #vignettes {
-  background: url(../../images/masthead-background.png);
+  background: url(../../images/background-inverse.png);
   background-size: cover;
+  border-radius: 6px;
 }
 /* Custom page header */
 .header {
