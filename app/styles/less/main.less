@@ -4,12 +4,12 @@
 
 @font-face {
   font-family: Hero;
-  src: url(fonts/hero/Hero.otf);
+  src: url(../../fonts/hero/Hero.otf);
 }
 
 @font-face {
   font-family: Hero Light;
-  src: url(fonts/hero/Hero%20Light.otf);
+  src: url(../../fonts/hero/Hero%20Light.otf);
 }
 
 @font-face {
@@ -35,7 +35,7 @@ Variables
 @ard-gris4: #999999;
 @ard-gris5: #777;
 @ard-gris6: #3f3f3f;
-
+@ard-gris7: #050505;
 
 @ard-rouge: #EE1D23;
 
@@ -80,7 +80,7 @@ body {
   background-size: cover;
 
   font-size: 18px;
-  font-family: Hero, cursive;
+  font-family: Hero;
   color: @ard-gris3;
 
 }
@@ -235,6 +235,22 @@ aux couleurs de www.lardoisienne.fr
     }
   }
 
+}
+
+/* .thumbnail */
+.thumbnail {
+//  .bordered-box(black, 6px, 12px, 1px, solid)
+  border: @ard-gris7 1px solid;
+  background-color: @ard-gris7;
+
+  & .caption {
+    font-family: Hero Light;
+    color: @ard-gris3;
+    text-align: center;
+    &>h3 {
+      font-family: Hero;
+    }
+  }
 }
 
 
@@ -458,7 +474,10 @@ créer des composants spécifiques à www.lardoisienne.fr.
   }
 }
 
-
+#vignettes {
+  background: url(../../images/masthead-background.png);
+  background-size: cover;
+}
 
 /* Custom page header */
 .header {

@@ -3,11 +3,11 @@
 */
 @font-face {
   font-family: Hero;
-  src: url(fonts/hero/Hero.otf);
+  src: url(../../fonts/hero/Hero.otf);
 }
 @font-face {
   font-family: Hero Light;
-  src: url(fonts/hero/Hero%20Light.otf);
+  src: url(../../fonts/hero/Hero%20Light.otf);
 }
 @font-face {
   font-family: 'Sarina';
@@ -42,7 +42,7 @@ body {
   background: url(../../images/background.png) no-repeat;
   background-size: cover;
   font-size: 18px;
-  font-family: Hero, cursive;
+  font-family: Hero, sans-serif;
   color: #d8d8d8;
 }
 a {
@@ -149,6 +149,19 @@ aux couleurs de www.lardoisienne.fr
 .dropdown-menu > .disabled > a:hover,
 .dropdown-menu > .disabled > a:focus {
   color: #999999;
+}
+/* .thumbnail */
+.thumbnail {
+  border: #050505 1px solid;
+  background-color: #050505;
+}
+.thumbnail .caption {
+  font-family: Hero Light, sans-serif;
+  color: #d8d8d8;
+  text-align: center;
+}
+.thumbnail .caption > h3 {
+  font-family: Hero, sans-serif;
 }
 .carousel {
   padding: 3px;
@@ -407,6 +420,10 @@ fieldset[disabled] .ard-orange-button.active {
   margin-right: auto;
   height: 151px;
   width: 737px;
+}
+#vignettes {
+  background: url(../../images/masthead-background.png);
+  background-size: cover;
 }
 /* Custom page header */
 .header {
