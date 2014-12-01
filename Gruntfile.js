@@ -1,6 +1,7 @@
 // Generated on 2014-01-09 using generator-angular 0.7.1
 'use strict';
 
+
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
@@ -26,17 +27,6 @@ module.exports = function (grunt) {
         },
 
 
-        less: {
-            default: {
-                options: {
-                    paths: ['<%= yeoman.app %>/styles/less']
-                },
-                files: {
-                    'app/styles/css/main.css': '<%= yeoman.app %>/styles/less/main.less'
-                }
-            }
-        },
-
         // Watches files for changes and runs tasks based on the changed files
         watch: {
             js: {
@@ -51,7 +41,7 @@ module.exports = function (grunt) {
                 tasks: ['newer:jshint:test', 'karma']
             },
             styles: {
-                files: ['<%= yeoman.app %>/styles/less/{,*/}*.less'],
+                files: ['<%= yeoman.app %>/styles/{,*/}*.less'],
                 tasks: ['less', 'newer:copy:styles', 'autoprefixer']
             },
             gruntfile: {
@@ -63,7 +53,7 @@ module.exports = function (grunt) {
                 },
                 files: [
                     '<%= yeoman.app %>/{,*/}*.html',
-                    '.tmp/styles/{,*/}*.css',
+                    '.tmp/styles/{,*/}*.less',
                     '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
                 ]
             }
@@ -171,6 +161,7 @@ module.exports = function (grunt) {
                     src: [
                         '<%= yeoman.dist %>/scripts/{,*/}*.js',
                         '<%= yeoman.dist %>/styles/{,*/}*.css',
+                        '<%= yeoman.dist %>/styles/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
                         '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
                         '<%= yeoman.dist %>/styles/fonts/*'
                     ]
@@ -184,7 +175,19 @@ module.exports = function (grunt) {
         useminPrepare: {
             html: '<%= yeoman.app %>/index.html',
             options: {
-                dest: '<%= yeoman.dist %>'
+                dest: '<%= yeoman.dist %>'/*,
+                flow: {
+                    steps: {
+                        'less': [{
+                            name: 'less',
+                            createConfig: lessCreateConfig
+                        }, 'concat', 'cssmin'],
+                        'js': ['concat', 'uglifyjs'],
+                        'css': ['concat', 'cssmin']
+
+                    },
+                    post: {}
+                }*/
             }
         },
 
@@ -193,7 +196,27 @@ module.exports = function (grunt) {
             html: ['<%= yeoman.dist %>/{,*/,**/}*.html'],
             css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
             options: {
-                assetsDirs: ['<%= yeoman.dist %>']
+                assetsDirs: [
+                    '<%= yeoman.dist %>', '<%= yeoman.dist %>/images'
+                ]
+            }
+        },
+
+        // Compile LESS files in `app/styles/` into CSS files
+        less: {
+            dist: {
+                options: {
+                    paths: ['<%= yeoman.app %>/styles']
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= yeoman.app %>/styles',
+                        src: ['*.less'],
+                        dest: '<%= yeoman.app %>/styles',
+                        ext: '.css'
+                    }
+                ]
             }
         },
 
@@ -206,6 +229,12 @@ module.exports = function (grunt) {
                         cwd: '<%= yeoman.app %>/images',
                         src: '{,*/}*.{png,jpg,jpeg,gif}',
                         dest: '<%= yeoman.dist %>/images'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= yeoman.app %>/styles',
+                        src: '{,*/}*.{png,jpg,jpeg,gif}',
+                        dest: '<%= yeoman.dist %>/styles'
                     }
                 ]
             }
@@ -218,6 +247,12 @@ module.exports = function (grunt) {
                         cwd: '<%= yeoman.app %>/images',
                         src: '{,*/}*.svg',
                         dest: '<%= yeoman.dist %>/images'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= yeoman.app %>/styles',
+                        src: '{,*/}*.svg',
+                        dest: '<%= yeoman.dist %>/styles'
                     }
                 ]
             }
@@ -302,16 +337,13 @@ module.exports = function (grunt) {
         // Run some tasks in parallel to speed up the build process
         concurrent: {
             server: [
-//                'copy:styles'
-                'less'
+                'copy:styles'
             ],
             test: [
-//                'copy:styles'
-                'less'
+                'copy:styles'
             ],
             dist: [
-//                'copy:styles',
-                'less',
+                'copy:styles',
                 'imagemin',
                 'svgmin'
             ]
@@ -385,6 +417,7 @@ module.exports = function (grunt) {
         'clean:dist',
         'bower-install',
         'useminPrepare',
+        'less',
         'concurrent:dist',
         'autoprefixer',
         'concat',
