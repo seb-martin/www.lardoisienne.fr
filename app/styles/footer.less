@@ -1,0 +1,28 @@
+
+@footer-border-top: 1px solid @ard-primary-500;
+@footer-margin-top:20px;
+@footer-vertical-padding: 40px;
+@footer-color:@ard-grey-54;
+
+
+@footer-discret-link-color: @ard-grey-26;
+@footer-discret-link-hover-color: @ard-grey-54;
+
+.footer {
+  margin-top:  @footer-margin-top;
+  padding-top: @footer-vertical-padding / 2;
+  padding-bottom: @footer-vertical-padding / 2;
+  color: @footer-color;
+  border-top: @footer-border-top;
+  text-align: center;
+}
+
+.discret{
+  & a{
+    color: @footer-discret-link-color;
+    &:hover{
+      color: @footer-discret-link-hover-color;
+    }
+  }
+}
+

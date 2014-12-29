@@ -1,0 +1,15 @@
+
+
+.page-container {
+  .container;
+  @media (min-width: @screen-sm-min ) {
+    max-width: @screen-sm-min * 0.95;
+  }
+
+}
+
+.bordered-box (@border-color: @ard-alternative-color-a, @border-radius: @border-radius-large, @padding: 12px, @border-width: 1px, @border-style:solid){
+  border: @border-width @border-style @border-color;
+  border-radius: @border-radius;
+  padding: @padding;
+}

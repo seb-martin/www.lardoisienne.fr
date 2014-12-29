@@ -1,0 +1,92 @@
+@accueil-infos-padding-bottom: 20px;
+
+.accueil {
+  .page-container;
+
+  .info-premiere,
+  .info-secondaire,
+  .info-tertiaire {
+    .make-row();
+    padding-bottom: @accueil-infos-padding-bottom;
+  }
+
+  .info{
+    h1, h2, h3, h4, h5, h6,
+    .h1, .h2, .h3, .h4, .h5, .h6{
+      .text-center;
+    }
+
+    button, a[type="button"] {
+      .btn;
+
+      @media (min-width: @screen-sm-min) {
+        .btn-lg;
+      }
+    }
+
+    .commands {
+      .text-right;
+    }
+  }
+
+  .info-premiere .info {
+    .make-sm-column(12);
+
+    h2 {
+      .ard-bb-a;
+    }
+  }
+
+  .info-secondaire .info {
+    .make-sm-column(6);
+  }
+
+  .info-secondaire .info:nth-of-type(1) {
+    h3{
+      .ard-bb-accent;
+    }
+
+    button, a[type="button"] {
+      .ard-btn-alternative-b;
+    }
+  }
+
+  .info-secondaire .info:nth-of-type(2) {
+    h3{
+      .ard-bb-b;
+    }
+
+    button, a[type="button"] {
+      .ard-btn-alternative-c;
+    }
+  }
+
+  .info-tertiaire .info {
+    .make-sm-column-offset(1);
+    .make-sm-column(10);
+
+    div{
+      .ard-bb-a;
+    }
+
+    button, a[type="button"] {
+      .ard-btn-primary;
+    }
+  }
+
+}
+
+.ard-textual-logo {
+  display: inline-block;
+  vertical-align: middle;
+  background: url("../images/ard-logo-123x25.png") no-repeat;
+  width: 123px;
+  height: 25px;
+
+  @media (min-width: @screen-sm-min) {
+    background: url("../images/ard-logo-148x30.png") no-repeat;
+    width: 148px;
+    height: 30px;
+  }
+}
+

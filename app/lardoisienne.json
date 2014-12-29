@@ -1,5 +1,8 @@
 {
   "contact" : {
+    "reseauxSociaux" : {
+      "facebookFollow" : "https://www.facebook.com/pages/LArdoisienne/266250143547350"
+    },
     "individus" : [ {
       "mail" : "morgane@lardoisienne.fr",
       "tel" : "06 22 20 11 03",
@@ -10,7 +13,7 @@
         "geolocalisationUrl" : "http://fr.mappy.com/#/0/M2/Ls/TSearch/SL'Ardoisienne+-+22+Rue+Charles+Schmidt%2C+93400+Saint-Ouen/N-105.585,-51.62314,2.33294,48.90486/Z10/",
         "transports" : [ "Métro 13 - Garibaldi", "Bus 137 - Garibaldi", "Bus 85 - Ernest Renan" ]
       },
-      "adresse" : [ "22 rue Charles Schmidt", "93400 Saint-Ouin" ],
+      "adresse" : [ "L'Ardoisienne", "22 rue Charles Schmidt", "93400 Saint-Ouen" ],
       "titre" : "Atelier",
       "infosLegales" : [ "Siret : 488 223 124 00022", "APE : 7311Z", "Contrat d'Assurance : 116555622F" ],
       "coordonnees" : {
@@ -20,29 +23,13 @@
       }
     }
   },
-  "footer" : [ [ "L'Ardoisienne", "22 rue Charles Schmidt", "93400 Saint-Ouen" ], [ "tél. 09 51 74 76 67", "mob. 06 22 20 11 03", "info@lardoisienne.fr" ] ],
-  "_galerie" : {
-    "customisations" : [ {
-      "titre" : "Le Caribou",
-      "description" : "Fresque",
-      "imgsrc" : "./medias/galerie/customisations/marquage-fresque_caribou_001.JPG"
-    } ],
-    "chevalets" : [ {
-      "titre" : "L'Artiste",
-      "description" : "Chevalet sans pied",
-      "imgsrc" : "./medias/galerie/chevalets/artiste_001.JPG"
-    } ],
-    "ardoises" : [ {
-      "titre" : "Chez Janou",
-      "description" : "Ardoise suspendue",
-      "imgsrc" : "./medias/galerie/ardoises/janou_002.jpg"
-    }, {
-      "titre" : "Zaza Bar",
-      "description" : "Happy Hour !",
-      "imgsrc" : "./medias/galerie/ardoises/zaza_bar_happy.jpg"
-    } ]
-  },
-  "header" : {
+    "footer": {
+        "content": [
+            [ "L'Ardoisienne", "22 rue Charles Schmidt", "93400 Saint-Ouen" ],
+            [ "tél. 09 51 74 76 67", "mob. 06 22 20 11 03", "info@lardoisienne.fr" ]
+        ]
+    },
+    "header" : {
     "menu" : [ {
       "location" : "/",
       "titre" : "Accueil"

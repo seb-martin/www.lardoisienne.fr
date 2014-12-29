@@ -1,6 +1,6 @@
 <header>
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="margin: 0">
-        <div class="container container-fluid">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="page-container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#app-navbar">
@@ -10,10 +10,9 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand"  href="." style="padding-bottom: 0; padding-top: 0">
-                    <img src="./images/logo_lardoisienne_inverse_def.png" alt="L'Ardoisienne" />
+                <a class="navbar-brand"  href=".">
+                    <i class="ard-brand-logo"></i>
                 </a>
-                <!--<a class="navbar-brand" href="#">L'Ardoisienne</a>-->
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -21,7 +20,7 @@
 
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-repeat="item in menu" ng-class="{'active':isActive(item), 'dropdown':item.menu}">
-                        <a ng-hide="item.menu" ng-href="#{{item.location}}"> {{item.titre}} </a>
+                        <a ng-hide="item.menu" ng-href="#{{item.location}}" ng-click="collapse('#app-navbar')"> {{item.titre}} </a>
                         <a ng-show="item.menu" data-toggle="dropdown">
                             {{item.titre}}
                             <span ng-show="item.menu" class="caret"></span>
@@ -35,7 +34,7 @@
                 </ul>
 
             </div><!-- /.navbar-collapse -->
-        </div><!-- /.container-fluid -->
+        </div><!-- /.container -->
     </nav>
 
 </header>

@@ -1,100 +1,89 @@
-/**
-* Typographie
-*/
+@import "../bower_components/bootstrap/less/bootstrap";
 
+@import "fonts";
+@import "variables";
+@import "mixins";
 
-@font-face {
-  font-family: Hero, sans-serif;
-  src: url(../fonts/hero/Hero.otf);
-}
-
-@font-face {
-  font-family: Hero Light, sans-serif;
-  src: url(../fonts/hero/Hero%20Light.otf);
-}
-
-@font-face {
-  font-family: 'Sarina';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Sarina'), local('Sarina-Regular'), url(http://themes.googleusercontent.com/static/fonts/sarina/v3/RRqEugSKCLP8ArQNKVWWGA.woff) format('woff');
-}
-@font-face {
-  font-family: 'Vampiro One';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Vampiro One'), local('VampiroOne-Regular'), url(http://fonts.gstatic.com/s/vampiroone/v4/Ho2Xld8UbQyBA8XLxF1_NdIh4imgI8P11RFo6YPCPC0.woff) format('woff');
-}
-
-
-/*
-Variables
-*/
-@ard-gris1: #f5f5f5;
-@ard-gris2: #e5e5e5;
-@ard-gris3: #d8d8d8;
-@ard-gris4: #999999;
-@ard-gris5: #777;
-@ard-gris6: #3f3f3f;
-@ard-gris7: #050505;
-
-@ard-rouge: #EE1D23;
-
-@ard-orange1: #f7931d;
-@ard-orange2: #a3531b;
-@ard-orange3: #6a3515;
-
-@ard-vert1: #8bc63e;
-@ard-vert2: #618c2d;
-@ard-vert3: #3f5d20;
-
-@ard-bleu1: #00aaad;
-@ard-bleu2: #008487;
-@ard-bleu3: #00696c;
+@import "navigation";
+@import "forms";
+@import "masthead";
+@import "header";
+@import "accueil";
+@import "galerie";
+@import "contact";
+@import "login";
+@import "footer";
 
 
 
-/*
-Mixins
-*/
+/* Bootstrap rules */
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
 
-.bordered-box (@border-color: @ard-rouge, @border-radius: 6px, @padding: 12px, @border-width: 1px, @border-style:solid){
-  border: @border-width @border-style @border-color;
-  border-radius: @border-radius;
-  padding: @padding;
-}
+/* Small devices (tablets, 768px and up) */
+//@media (min-width: @screen-sm-min) { ... }
 
-.bordered-box{
-  .bordered-box();
-}
+/* Medium devices (desktops, 992px and up) */
+//@media (min-width: @screen-md-min) { ... }
+
+/* Large devices (large desktops, 1200px and up) */
+//@media (min-width: @screen-lg-min) { ... }
+
+
+
+@wrapper-padding-top: 50px;
+
+@wrapper-sm-padding-bottom: 20px;
+@wrapper-sm-background: url(../images/background-patch-720x540.jpg) repeat;
 
 /*
 TAGS : Surcharge des balises
 */
 
 body {
-  padding-top: 50px;
-  padding-bottom: 20px;
 
-  /* Background */
-  background: url(../images/background.png) no-repeat;
-  background-size: cover;
+  @media (min-width: @screen-sm-min) {
+    font-size: ceil(@font-size-base * 1.2);
 
-  font-size: 18px;
-  font-family: Hero, sans-serif;
-  color: @ard-gris3;
+    h1, .h1{
+      font-size: ceil(@font-size-h1 * 1.2);
+    }
 
-}
+    h2, .h2{
+      font-size: ceil(@font-size-h2 * 1.2);
+    }
 
+    h3, .h3{
+      font-size: ceil(@font-size-h3 * 1.2);
+    }
 
-a {
-  color: @ard-orange1;
-  text-decoration: none;
-  &:hover, &:focus {
-    color: @ard-orange2;
-    text-decoration: underline;
+    h4, .h4{
+      font-size: ceil(@font-size-h4 * 1.2);
+    }
+
+    h5, .h5{
+      font-size: ceil(@font-size-h5 * 1.2);
+    }
+
+    h6, .h6{
+      font-size: ceil(@font-size-h6 * 1.2);
+    }
   }
+
 }
+
+.wrapper{
+  padding-top: @wrapper-padding-top;
+  @media (min-width: @screen-sm-min) {
+    //    padding-bottom: @wrapper-sm-padding-bottom;
+    background: @wrapper-sm-background;
+  }
+
+}
+
+
+
+
 
 /*
 SPECIALISATION BOOTSTRAP
@@ -105,154 +94,11 @@ aux couleurs de www.lardoisienne.fr
 
 */
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
-
-.container-narrow > hr {
-  margin: 30px 0;
-}
-
-
-
-.jumbotron{
-  text-align: center;
-  border: 1px solid @ard-rouge;
-  background-color: transparent;
-
-  h1, h2 {
-    color: @ard-rouge;
-  }
-
-  .btn {
-    font-size: 21px;
-    padding: 14px 24px;
-  }
-}
-
-.has-error{
-  & .control-label {
-    color: @ard-rouge;
-  }
-}
-
-.has-warning{
-  & .control-label {
-    color: @ard-orange1;
-  }
-}
-
-.has-success{
-  & .control-label {
-    color: @ard-vert1;
-  }
-}
 
 .popover{
   color: @ard-gris6;
 }
 
-
-/* .nav */
-
-.nav {
-  & > li.disabled {
-    & > a, & > a:hover, & > a:focus{
-      color: @ard-gris4;
-    }
-  }
-
-  & .nav-divider{
-    background-color: @ard-gris2;
-  }
-}
-
-/* .nav-pills */
-.nav-pills {
-  & > li {
-    & > a {
-      color: @ard-gris3;
-      border: 1px solid transparent;
-
-      &:hover, &:focus {
-        background-color: transparent;
-        border: 1px solid @ard-orange1;
-        cursor: pointer;
-      }
-    }
-
-    &.active > a {
-      &, &:hover, &:focus {
-        background-color: transparent;
-        border: 1px solid @ard-rouge;
-      }
-    }
-
-    & > .badge {
-      color: @ard-orange1;
-      background-color: @ard-gris3;
-    }
-
-  }
-
-  & .open > a {
-    &, &:hover, &:focus {
-      color: @ard-orange1;
-      background-color: transparent;
-      border-color: @ard-orange1;
-    }
-  }
-
-
-}
-
-
-/* .dropdown-menu*/
-
-.dropdown-menu {
-
-  & > li > a {
-    &:hover,
-    &:focus {
-      color: @ard-orange1;
-      background-color: @ard-gris1;
-    }
-
-  }
-
-  & > .active > a {
-    &, &:hover, &:focus {
-      color: @ard-gris3;
-      background-color: @ard-orange1;
-    }
-  }
-
-  & > .disabled > a {
-    &, &:hover, &:focus {
-      color: @ard-gris4;
-    }
-  }
-
-}
-
-/* .thumbnail */
-.thumbnail {
-//  .bordered-box(black, 6px, 12px, 1px, solid)
-  border: @ard-gris7 1px solid;
-  background-color: @ard-gris7;
-
-  & .caption {
-    font-family: Hero Light, sans-serif;
-    color: @ard-gris3;
-    text-align: center;
-    &>h3 {
-      font-family: Hero, sans-serif;
-    }
-  }
-}
 
 
 .carousel{
@@ -292,14 +138,57 @@ créer des composants spécifiques à www.lardoisienne.fr.
 
 */
 
-.discret{
-  & a{
-    color: @ard-gris6;
-    &:hover{
-      color: @ard-gris5;
-    }
-  }
+// .ard-btn.*
+///////////////
+
+.ard-btn-default{
+  .button-variant(@ard-grey-87, @ard-primary-500, darken(@ard-primary-500, 5%));
 }
+
+.ard-btn-primary{
+  .button-variant(@ard-grey-87, @ard-accent-color-700, darken(@ard-accent-color-700, 5%));
+}
+
+.ard-btn-alternative-a{
+  .button-variant(@ard-grey-87, @ard-alternative-color-a, darken(@ard-alternative-color-a, 5%));
+}
+
+.ard-btn-alternative-b{
+  .button-variant(@ard-grey-87, @ard-alternative-color-b, darken(@ard-alternative-color-b, 5%));
+}
+
+.ard-btn-alternative-c{
+  .button-variant(@ard-grey-87, @ard-alternative-color-c, darken(@ard-alternative-color-c, 5%));
+}
+
+
+// .bordered-box, .ard-bb-*
+.bordered-box{
+  .bordered-box();
+}
+
+.ard-bb-accent{
+  .bordered-box(@ard-accent-color-700)
+}
+
+.ard-bb-primary{
+  .bordered-box(@ard-primary-500)
+}
+
+.ard-bb-a{
+  .bordered-box(@ard-alternative-color-a)
+}
+
+.ard-bb-b{
+  .bordered-box(@ard-alternative-color-b)
+}
+
+.ard-bb-c{
+  .bordered-box(@ard-alternative-color-c)
+}
+
+
+
 
 
 
@@ -401,6 +290,10 @@ créer des composants spécifiques à www.lardoisienne.fr.
   .ard-bg(@ard-gris3, @ard-vert1, @ard-vert2)
 }
 
+.ard-btn-green{
+  .button-variant(@ard-gris3, @ard-vert2, @ard-vert3);
+}
+
 .ard-green-button {
   .ard-btn(@ard-gris3, @ard-gris6, @ard-vert1, @ard-vert2, @ard-vert3);
 }
@@ -431,14 +324,6 @@ créer des composants spécifiques à www.lardoisienne.fr.
 /* Classes d'icônes */
 
 
-.ard-textual-logo {
-  background: url("../images/ard-logo-148x30.png") no-repeat;
-  display: inline-block;
-  height: 30px;
-  width: 148px;
-  vertical-align: middle;
-}
-
 .ard-facebook-logo {
   background: url("../images/facebook-icone-5610-32.png") no-repeat;
   display: inline-block;
@@ -446,123 +331,6 @@ créer des composants spécifiques à www.lardoisienne.fr.
   width: 32px;
   vertical-align: middle;
 }
-
-
-/* Custom masthead */
-.masthead {
-  background: url(../images/masthead-background.png);
-  background-size: cover;
-  text-align: center;
-  padding-top: 200px;
-  padding-bottom: 200px;
-
-  & p {
-    font-size: 28px;
-    font-family: "Vampiro One", cursive;
-    color: @ard-orange1;
-
-    .big {
-      font-size: 40px;
-    }
-  }
-
-  .masthead-main {
-    background: url(../images/masthead-main.png);
-    margin-left: auto;
-    margin-right: auto;
-    height: 93px;
-    width: 110px;
-  }
-
-  .masthead-logo {
-    background: url(../images/masthead-logo.png);
-    margin-left: auto;
-    margin-right: auto;
-    height: 151px;
-    width: 737px;
-  }
-}
-
-#vignettes {
-  background: url(../images/background-inverse.png);
-  background-size: cover;
-  border-radius: 6px;
-}
-
-/* Custom page header */
-.header {
-  background: url(../images/header-background.jpg);
-  background-size: cover;
-  padding-top: 40px;
-  padding-bottom: 40px;
-
-  & h1 {
-    font-family: 'Vampiro One', cursive;
-    color: @ard-orange1;
-
-    & small{
-      color: @ard-gris1;
-    }
-  }
-}
-
-
-
-/* Custom page footer */
-.footer {
-  margin-top: 19px;
-  padding-top: 19px;
-  color: @ard-gris5;
-  border-top: 1px solid @ard-gris2;
-  text-align: center;
-}
-
-/* Supporting marketing content */
-.marketing {
-  margin: 40px 0;
-
-  & p + h4 {
-    margin-top: 28px;
-  }
-
-  & .btn {
-    font-size: 21px;
-    padding: 10px 20px;
-  }
-}
-
-
-
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Space out the masthead */
-/*
-  .header {
-    margin-bottom: 30px;
-    padding-left: 0;
-    padding-right: 0;
-  }
-*/
-
-  /* Remove the padding we set earlier */
-/*
-  .marketing,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-*/
-
-  /* Remove the bottom border on the jumbotron for visual effect */
-/*
-  .jumbotron {
-    border-bottom: 0;
-  }
-*/
-}
-
-
 
 
 

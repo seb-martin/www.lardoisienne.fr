@@ -1,0 +1,107 @@
+
+@login-lead-font-size: floor((@font-size-base * 2.6)); // ~36px
+@logout-navigation-vertical-padding: 40px;
+@logout-commands-vertical-padding: 40px;
+
+.login {
+  .page-container;
+}
+
+.login-content {
+
+  .bordered-box(@ard-alternative-color-a);
+  padding: 30px;
+
+}
+
+#login-form {
+  .form-horizontal();
+
+  .field.email, .field.password {
+//    &:extend(.form-group);
+    label {
+      .make-sm-column-offset(2);
+      .make-sm-column(3);
+    }
+    div {
+      .make-sm-column(5);
+
+/*
+      input[type="email"],
+      input[type="password"] {
+//        .form-control;
+//        &:extend(.form-control);
+      }
+*/
+    }
+
+  }
+  .field.remember {
+    div{
+      .make-sm-column-offset(5);
+      .make-sm-column(5);
+      .checkbox;
+    }
+  }
+
+  .commands {
+    div {
+      .make-sm-column-offset(5);
+      .make-sm-column(5);
+
+      button[type="submit"] {
+        .btn;
+        .ard-btn-primary;
+        .pull-right;
+      }
+    }
+  }
+
+}
+
+#logout-form {
+  .lead{
+    text-align: center;
+    @media (min-width: @screen-sm-min) {
+      font-size: @login-lead-font-size;
+    }
+  }
+
+  .navigation {
+    .make-row();
+    padding-top: @logout-navigation-vertical-padding / 2;
+    padding-bottom: @logout-navigation-vertical-padding / 2;
+    & > div {
+      .make-xs-column(4);
+      .text-center;
+
+      button, a[type="button"] {
+        .btn;
+        .btn-xs;
+        .ard-btn-default;
+        @media (min-width: @screen-sm-min) {
+          .btn-lg;
+        }
+      }
+    }
+  }
+
+  .commands {
+    .make-row();
+    padding-top: @logout-commands-vertical-padding / 2;
+    padding-bottom: @logout-commands-vertical-padding / 2;
+    & > div {
+      .make-xs-column(12);
+      .text-center;
+
+      button, a[type="button"] {
+        .btn;
+        .ard-btn-primary;
+        .center-block;
+        @media (min-width: @screen-sm-min) {
+          .btn-lg;
+        }
+      }
+    }
+  }
+}

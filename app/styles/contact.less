@@ -1,0 +1,99 @@
+
+.contact {
+  .page-container;
+
+  .content {
+    .make-row();
+
+  }
+
+  .side {
+    .make-sm-column(6);
+  }
+
+  .atelier {
+    &>h2 {
+      color: @ard-alternative-color-b;
+
+    }
+  }
+
+  .atelier, .localisation, .infos-legales{
+    address{
+      .ard-bb-b;
+    }
+
+  }
+
+  .personne {
+    &>h2 {
+      color: @ard-alternative-color-c;
+    }
+
+    address{
+      .ard-bb-c;
+    }
+  }
+
+  .message {
+    &>h2 {
+      color: @ard-accent-color-700;
+    }
+
+    &>div {
+      .ard-bb-accent;
+    }
+  }
+
+
+  .atelier-icon{
+    .glyphicon;
+    .glyphicon-home;
+  }
+
+  .tel-icon{
+    .glyphicon;
+    .glyphicon-phone-alt;
+  }
+
+  .fax-icon{
+    .glyphicon;
+    .glyphicon-print;
+  }
+
+  .mail-icon{
+    .glyphicon;
+    .glyphicon-envelope;
+  }
+
+  .transport-icon{
+    .glyphicon;
+    .glyphicon-plane;
+  }
+
+  .geolocalisation-icon{
+    .glyphicon;
+    .glyphicon-map-marker;
+  }
+
+  .info-legale-icon{
+    .glyphicon;
+    .glyphicon-pushpin;
+  }
+
+  .facebook-icon {
+    .ard-facebook-logo;
+  }
+
+  .personne-icon {
+    .glyphicon;
+    .glyphicon-user;
+  }
+
+  .envoyer-msg-icon {
+    .glyphicon;
+    .glyphicon-send;
+  }
+
+
+}

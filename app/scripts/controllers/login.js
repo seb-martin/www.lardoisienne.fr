@@ -11,7 +11,9 @@ angular.module('lardoisienneApp')
 
         };
 
-        $scope.menuButtonClasses = [ 'ard-green-button', 'ard-blue-button' ];
+        $scope.menuButtonClasses = [ 'ard-btn-alternative-c', 'ard-btn-alternative-a', 'ard-btn-default' ];
+
+
 
         $scope.$on('auth:loginSuccess', function(/*event, user*/) {
             $scope.$apply(function () {
@@ -20,6 +22,7 @@ angular.module('lardoisienneApp')
                 $scope.menu = firebase.$child('/header/menu');
             });
         });
+
         $scope.$on('auth:loginFail', function(/*event, error*/) {
             $scope.$apply(function () {
                 update();
@@ -41,6 +44,10 @@ angular.module('lardoisienneApp')
             }
         });
 
+        $scope.$watch('user', function() {
+            failPopover.popover('hide');
+        });
+
         $scope.login = function() {
             delete $scope.loginFail;
             auth.login();
@@ -55,6 +62,8 @@ angular.module('lardoisienneApp')
 
         // Init popover des échecs de login
         failPopover.popover({
+            container:'.login-content',
+            placement:'left',
             trigger: 'manual'
         });
 

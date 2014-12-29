@@ -1,36 +1,30 @@
-<ard-header style="margin-bottom: 20px">
+<ard-header>
     <span ng-hide="hasName(displayedCliche.photo) || hasDescription(displayedCliche.photo)">Galerie</span>
     <span ng-show="hasName(displayedCliche.photo)">{{displayedCliche.photo.name}}</span>
     <span ng-show="hasDescription(displayedCliche.photo)"><small>{{displayedCliche.photo.description}}</small></span>
 </ard-header>
 
-<div>
+<div class="galerie">
 
-    <div id="photo" ng-show="displayedCliche">
-        <div class="row" style="text-align: center">
-            <img ng-src="{{displayedCliche.photo.image_url}}" alt=""
-                 ng-click="hideCliche()"
-                 class="ard-bb-orange" style="padding: 0; left: auto; right: auto; cursor: pointer; max-width: 100%; max-height: 70%"/>
-        </div>
+    <div class="photo" ng-show="displayedCliche">
+        <img ng-src="{{displayedCliche.photo.image_url}}" alt="{{displayedCliche.photo.name}}" ng-click="hideCliche()"/>
     </div>
 
-    <div id="zero-vignettes" ng-hide="vignettes" class="container">
-        <div class="row">
-            <div class="col-md-offset-2 col-md-8 bordered-box" style="text-align: center;">
-
+    <div id="zero-vignettes" ng-hide="vignettes">
+        <div class="content">
+            <div class="zero-vignette">
                 <h2>Aucun cliché :'(</h2>
                 <p class="lead">Aucun cliché disponible dans la galerie.</p>
             </div>
         </div>
     </div>
 
-    <div id="vignettes" ng-show="vignettes && !displayedCliche" class="container">
-        <div class="row bordered-box">
-            <div ng-repeat="cliche in vignettes.photos" class="col-xs-6 col-md-4">
-
-                <div class="thumbnail" style="">
-                    <img ng-click="displayCliche(cliche.id)" ng-src="{{cliche.image_url}}" alt="{{cliche.name}}"
-                         height="280px" width="280px" style=" cursor: pointer; "/>
+    <div class="vignettes" ng-show="vignettes && !displayedCliche">
+        <div class="content">
+            <div class="vignette" ng-repeat="cliche in vignettes.photos" ng-click="displayCliche(cliche.id)" >
+                <div class="thumbnail">
+                    <img ng-src="{{cliche.image_url}}" alt="{{cliche.name}}"
+                         height="280px" width="280px"/>
 
                     <div class="caption " ng-show="hasName(cliche) || hasDescription(cliche)">
                         <h3 ng-show="hasName(cliche)">{{cliche.name}}</h3>

@@ -1,14 +1,14 @@
 
 <ard-header>Contact</ard-header>
 
-<div class="container" ng-controller="ContactCtrl">
+<div class="contact" ng-controller="ContactCtrl">
 
-    <div class="row">
-        <div class="col-md-6">
-            <section id="atelier-contact">
-                <h2 class="ard-color-blue1"><i class="glyphicon glyphicon-home"></i> {{contact.atelier.titre}}</h2>
+    <div class="content">
+        <div class="left side">
+            <section id="atelier-contact" class="atelier">
+                <h2><i class="atelier-icon"></i> {{contact.atelier.titre}}</h2>
 
-                <address class="ard-bb-blue">
+                <address>
                     <ard-editable-list list="contact.atelier.adresse" new-value="'Nouvelle ligne'">
                         <ard-editable-list-item ng-repeat="ligne in contact.atelier.adresse | orderByPriority">
                             <ard-editable-text text="contact.atelier.adresse[$index]"> {{ligne}}</ard-editable-text>
@@ -16,43 +16,43 @@
                     </ard-editable-list>
 
                 </address>
-                <address class="ard-bb-blue">
-                    <ard-editable-text text='contact.atelier.coordonnees.tel' icon-class="glyphicon glyphicon-phone-alt">
+                <address>
+                    <ard-editable-text text='contact.atelier.coordonnees.tel' icon-class="tel-icon">
                         {{contact.atelier.coordonnees.tel}}
                     </ard-editable-text>
                     <br>
 
-                    <ard-editable-text text='contact.atelier.coordonnees.fax' icon-class="glyphicon glyphicon-print">
+                    <ard-editable-text text='contact.atelier.coordonnees.fax' icon-class="fax-icon">
                         {{contact.atelier.coordonnees.fax}}
                     </ard-editable-text>
                     <br>
 
-                    <ard-editable-text text="contact.atelier.coordonnees.mail" icon-class="glyphicon glyphicon-envelope">
+                    <ard-editable-text text="contact.atelier.coordonnees.mail" icon-class="mail-icon">
                         <a ng-href="mailto:{{contact.atelier.coordonnees.mail}}">{{contact.atelier.coordonnees.mail}}</a>
                     </ard-editable-text>
                 </address>
             </section>
 
-            <section id="localisation">
-                <address class="ard-bb-blue">
+            <section id="localisation" class="localisation">
+                <address>
                     <ard-editable-list list="contact.atelier.localisation.transports" new-value="'<transport> <n° ligne> - <station>'">
                         <ard-editable-list-item ng-repeat="transport in contact.atelier.localisation.transports">
-                            <ard-editable-text text='contact.atelier.localisation.transports[$index]' icon-class="glyphicon glyphicon-plane"> {{transport}}</ard-editable-text>
+                            <ard-editable-text text='contact.atelier.localisation.transports[$index]' icon-class="transport-icon"> {{transport}}</ard-editable-text>
                         </ard-editable-list-item>
                     </ard-editable-list>
 
-                    <ard-editable-text text="contact.atelier.localisation.geolocalisationUrl" icon-class="glyphicon glyphicon-map-marker">
+                    <ard-editable-text text="contact.atelier.localisation.geolocalisationUrl" icon-class="geolocalisation-icon">
                         <a target="_blank" ng-href="{{contact.atelier.localisation.geolocalisationUrl}}">Géolocalisation</a>
                     </ard-editable-text>
                 </address>
             </section>
 
-            <section id="infos-legales">
-                <address class="ard-bb-blue">
+            <section id="infos-legales" class="infos-legales">
+                <address>
 
                     <ard-editable-list list="contact.atelier.infosLegales" new-value="'<titre> : <info>'">
                         <ard-editable-list-item ng-repeat="info in contact.atelier.infosLegales">
-                            <ard-editable-text text='contact.atelier.infosLegales[$index]' icon-class="glyphicon glyphicon-pushpin"> {{info}}</ard-editable-text>
+                            <ard-editable-text text='contact.atelier.infosLegales[$index]' icon-class="info-legale-icon"> {{info}}</ard-editable-text>
                         </ard-editable-list-item>
                     </ard-editable-list>
 
@@ -60,29 +60,29 @@
             </section>
 
             <section id="reseaux-sociaux">
-                <ard-editable-text text="contact.reseauxSociaux.facebookFollow" icon-class="ard-facebook-logo">
+                <ard-editable-text text="contact.reseauxSociaux.facebookFollow" icon-class="facebook-icon">
                     <a ng-href="{{contact.reseauxSociaux.facebookFollow}}" target="_blank"> Suivez-nous sur Facebook </a>
                 </ard-editable-text>
             </section>
         </div>
-        <div class="col-md-6">
-            <section ng-repeat="individu in contact.individus">
-                <h2 class="ard-color-green1"><i class="glyphicon glyphicon-user"></i> {{individu.nom}}</h2>
-                <address class="ard-bb-green">
-                    <ard-editable-text text="individu.tel" icon-class="glyphicon glyphicon-phone">
+        <div class="right side">
+            <section class="personne" ng-repeat="individu in contact.individus">
+                <h2><i class="personne-icon"></i> {{individu.nom}}</h2>
+                <address>
+                    <ard-editable-text text="individu.tel" icon-class="tel-icon">
                         {{individu.tel}}
                     </ard-editable-text>
                     <br>
-                    <ard-editable-text text="individu.mail" icon-class="glyphicon glyphicon-envelope">
+                    <ard-editable-text text="individu.mail" icon-class="mail-icon">
                         <a ng-href="mailto:{{individu.mail}}">{{individu.mail}}</a>
                     </ard-editable-text>
                 </address>
             </section>
 
-            <section id="message">
-                <h2 class="ard-color-orange1"><i class="glyphicon glyphicon-send"></i> Une info ?</h2>
+            <section id="message" class="message">
+                <h2><i class="envoyer-msg-icon"></i> Une info ?</h2>
 
-                <div ard-send-mail class="ard-bb-orange"></div>
+                <ard-send-message></ard-send-message>
             </section>
         </div>
 

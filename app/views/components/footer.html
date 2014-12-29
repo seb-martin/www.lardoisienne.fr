@@ -1,9 +1,9 @@
-<div class="footer">
-    <div ng-repeat="ligne in data">
+<footer class="footer">
+    <div ng-repeat="ligne in data" class="page-container row">
         <span ng-repeat="info in ligne">
-            {{info}} <i ng-hide="$last" class="glyphicon glyphicon-minus"></i>
+            <small>{{info}} <i ng-hide="$last" class="glyphicon glyphicon-minus"></i></small>
         </span>
         <br ng-hide="$last">
     </div>
-    <div ard-logout></div>
-</div>
+    <ard-logout></ard-logout>
+</footer>

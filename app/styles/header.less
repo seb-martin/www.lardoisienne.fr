@@ -1,0 +1,34 @@
+
+@header-background: url(../images/header-background.jpg);
+@header-vertical-padding: 80px;
+@header-margin-bottom: 20px;
+@header-content-font-family: 'Vampiro One', cursive;
+@header-content-h1-color:  @ard-accent-color-700;
+@header-content-h1-small-color: @ard-grey-87;
+
+.header {
+  background-color: @ard-primary-500;
+  background-size: cover;
+  padding-top: @header-vertical-padding / 2;
+  padding-bottom: @header-vertical-padding / 2;
+  margin-bottom: @header-margin-bottom;
+
+  @media(min-width: @screen-sm-min){
+    background: @header-background;
+  }
+
+  & > .header-content {
+    .page-container();
+    font-family: @header-content-font-family;
+    & > h1 {
+      color: @header-content-h1-color;
+      text-shadow: 3px 6px 10px rgba(0, 0, 0, 0.8);
+
+      & small{
+        color: @header-content-h1-small-color;
+      }
+    }
+  }
+
+}
+

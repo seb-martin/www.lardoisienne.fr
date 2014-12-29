@@ -1,47 +1,57 @@
-<ard-header style="margin-bottom: 20px">Connexion</ard-header>
+<ard-header>Connexion</ard-header>
 
-<div class="container bordered-box" style="padding: 30px;" ng-controller="LoginCtrl">
-    <form role="form" class="form-horizontal" ng-submit="login()" ng-hide="user.id">
-        <div class="form-group">
-            <label for="email" class="col-sm-offset-2 col-sm-3">Email</label>
-            <div class="col-sm-5">
-                <input id="email" type="email" class="form-control" ng-model="user.email" ng-change="loginFail = undefined" name="email" placeholder="Saisissez votre email"/>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="password" class="col-sm-offset-2 col-sm-3">Mot de passe</label>
+<div class="login" ng-controller="LoginCtrl">
 
-            <div class="col-sm-5">
-                <input id="password" type="password" class="form-control" ng-model="user.password" ng-change="loginFail = undefined" placeholder="Mot de passe"/>
+    <div class="login-content">
+
+        <form id="login-form" name="loginForm" role="form" ng-submit="login()" ng-hide="user.id">
+            <div class="form-group field email">
+                <label for="email" class="control-label">Email</label>
+                <div>
+                    <input id="email" name="email" type="email" class="form-control"
+                           ng-model="user.email"
+                           ng-change="loginFail = undefined" placeholder="Saisissez votre email" required/>
+                </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-5 col-sm-5">
-                <div class="checkbox">
-                    <label>
+            <div class="form-group field password">
+                <label for="password" class="control-label">Mot de passe</label>
+
+                <div>
+                    <input id="password" name="password" type="password" class="form-control"
+                           ng-model="user.password" ng-change="loginFail = undefined" placeholder="Mot de passe" required/>
+                </div>
+            </div>
+            <div class="form-group field remember">
+                <div>
+                    <label class="control-label">
                         <input type="checkbox" ng-model="user.rememberMe"> Se rappeler de moi
                     </label>
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-5 col-sm-5">
-                <button id="loginButton" type="submit" class="btn ard-orange-button" data-content="Email ou mot de passe invalide">Login !</button>
-            </div>
-        </div>
-    </form>
-
-    <form ng-show="user.id" ng-submit="logout()">
-        <div>
-            <h1 style="text-align: center; padding-bottom: 20px">Bienvenue {{user.email}}</h1>
-            <div class="btn-toolbar" role="toolbar" style="padding-bottom: 20px">
-                <div class="btn-group btn-group-lg btn-group-justified">
-                    <a ng-repeat="item in menu" ng-href="#{{item.location}}" type="button" class="btn" ng-class="menuButtonClasses[$index % menuButtonClasses.length]">{{item.titre}}</a>
+            <div class="form-group commands">
+                <div>
+                    <button id="loginButton" type="submit" ng-disabled="loginForm.$invalid"
+                            data-content="Email ou mot de passe invalide">Login !</button>
                 </div>
             </div>
-            <div>
-                <button type="submit" class="btn ard-orange-button center-block">Déconnexion</button>
+        </form>
+
+        <form id="logout-form" ng-show="user.id" ng-submit="logout()">
+            <p class="lead">Bienvenue {{user.email}}</p>
+
+            <div class="navigation">
+                <div ng-repeat="item in menu" >
+                    <a ng-href="#{{item.location}}" type="button" >{{item.titre}}</a>
+                </div>
             </div>
-        </div>
-    </form>
+
+            <div class="commands">
+                <div>
+                    <button type="submit">Déconnexion</button>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
 </div>

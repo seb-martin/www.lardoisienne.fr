@@ -1,4 +1,4 @@
-<div>
+<div class="send-message">
     <form name="messageForm" role="form" ng-submit="envoyer()">
         <div class="form-group" ng-class="inputValidationClass(messageForm.raisonSocialeInput)">
             <label class="control-label" for="raisonSocialeInput">
@@ -42,7 +42,7 @@
             {{reponse.message}}
         </div>
         <div style="text-align: right">
-            <button type="submit" class="btn ard-orange-button" ng-disabled="messageForm.$invalid">Envoyer</button>
+            <button type="submit" class="btn ard-btn-primary" ng-disabled="messageForm.$invalid">Envoyer</button>
         </div>
     </form>
 </div>
