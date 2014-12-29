@@ -19,10 +19,6 @@
     <link rel="stylesheet" href="styles/main.css" />
     <!-- endbuild -->
 
-    <!-- build:remove -->
-    <!--<script src="bower_components/less.js/dist/less-1.6.2.js" type="text/javascript"></script>-->
-    <!-- endbuild -->
-
 </head>
 <body ng-app="lardoisienneApp">
     <!--[if lt IE 7]>
@@ -32,15 +28,13 @@
     <!--http://getbootstrap.com/getting-started/#accessibility-->
     <a href="#content" class="sr-only">Skip to content</a>
 
+    <div class="wrapper">
+        <ard-navigation></ard-navigation>
 
-   <ard-page>
-       <ard-navigation></ard-navigation>
+        <div id="content" ng-view=""></div>
 
-       <div id="content" ng-view=""></div>
-
-       <ard-footer></ard-footer>
-
-   </ard-page>
+        <ard-footer></ard-footer>
+    </div>
 
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->

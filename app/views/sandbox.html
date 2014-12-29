@@ -1,0 +1,20 @@
+<ard-header>bac à sable</ard-header>
+
+<div class="container">
+    <div ng-controller="MyController as ctrl" ng-init="edit = true">
+
+        <button type="button" class="btn btn-default" ng-click="edit = !edit">Edit Mode</button>
+
+        {{ctrl.data | json}}
+
+        <ard-editable-list2 new-item="ctrl.addData('Z')" edit-mode="edit">
+            <ard-editable-list-item2 ng-repeat="info in ctrl.data" remove-item="ctrl.removeData($index)">
+                {{$index}} : {{info}}
+            </ard-editable-list-item2>
+        </ard-editable-list2>
+
+
+
+    </div>
+
+</div>

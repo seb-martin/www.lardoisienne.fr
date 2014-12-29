@@ -18,7 +18,7 @@ angular.module('lardoisienneApp', [
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'views/main.html',
+                templateUrl: 'views/accueil.html',
                 controller: 'MainCtrl'
             })
             .when('/login', {
@@ -30,6 +30,9 @@ angular.module('lardoisienneApp', [
             .when('/galerie', {
                 controller: 'GalerieCtrl',
                 templateUrl: 'views/galerie.html'
+            })
+            .when('/sandbox', {
+                templateUrl: 'views/sandbox.html'
             })
             .otherwise({
                 redirectTo: '/'
