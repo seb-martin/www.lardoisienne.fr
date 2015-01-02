@@ -49,7 +49,7 @@
         "node": ">=0.8.0"
     },
     "scripts": {
-        "install":"grunt",
+        "postinstall": "bower install",
         "test": "grunt test"
     }
 }

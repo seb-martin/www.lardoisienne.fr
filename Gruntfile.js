@@ -437,6 +437,4 @@ module.exports = function (grunt) {
         'build'
     ]);
 
-    grunt.registerTask('myconcat', ['useminPrepare', 'concat']);
-
 };
