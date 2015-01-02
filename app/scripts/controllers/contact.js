@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('lardoisienneApp')
-    .controller('ContactCtrl', ['$scope', 'firebase', function($scope, firebase) {
+    .controller('ContactCtrl', ['$scope', '$firebase', 'firebaseRef', function($scope, $firebase, firebaseRef) {
 
-        var contact = firebase.$child('/contact');
-        contact.$bind($scope, 'contact');
+//        var contact = firebaseRef.child('/contact');
+        var contact = $firebase(firebaseRef.child('/contact')).$asObject();
+        contact.$bindTo($scope, 'contact');
 
     }]);

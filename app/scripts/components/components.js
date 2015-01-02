@@ -3,14 +3,14 @@
 
     angular.module('lardoisienneApp')
 
-        .directive('ardNavigation', ['$window', '$location', 'firebase', function($window, $location, firebase) {
+        .directive('ardNavigation', ['$window', '$location', '$firebase', 'firebaseRef', function($window, $location, $firebase, firebaseRef) {
             return {
                 restrict: 'E',
                 templateUrl: 'views/components/navigation.html',
                 replace: true,
                 link: function(scope, elem) {
 
-                    scope.menu = firebase.$child('/header/menu');
+                    scope.menu = $firebase(firebaseRef.child('/header/menu')).$asArray();
 
                     scope.isActive = function(menuItem) {
                         if(menuItem.menu) {
@@ -47,24 +47,24 @@
                 transclude: true
             };
         }])
-        .directive('ardFooter', ['firebase', function(firebase) {
+        .directive('ardFooter', ['$firebase', 'firebaseRef', function($firebase, firebaseRef) {
             return {
                 restrict: 'E',
                 templateUrl: 'views/components/footer.html',
                 replace: true,
                 link: function (scope) {
-                    scope.data = firebase.$child('/footer/content');
+                    scope.data = $firebase(firebaseRef.child('/footer/content')).$asObject();
                 }
             };
         }])
-        .directive('menu', ['$location', 'firebase', function($location, firebase) {
+        .directive('menu', ['$location', '$firebase', 'firebaseRef', function($location, $firebase, firebaseRef) {
             return {
                 restrict: 'A',
                 templateUrl: 'views/components/menu.html',
                 replace: true,
                 link: function(scope) {
 
-                    scope.menu = firebase.$child('/header/menu');
+                    scope.menu = $firebase(firebaseRef.child('/header/menu')).$asArray();
 
                     scope.isActive = function(menuItem) {
                         if(menuItem.menu) {

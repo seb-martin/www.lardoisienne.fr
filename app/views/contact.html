@@ -10,7 +10,7 @@
 
                 <address>
                     <ard-editable-list list="contact.atelier.adresse" new-value="'Nouvelle ligne'">
-                        <ard-editable-list-item ng-repeat="ligne in contact.atelier.adresse | orderByPriority">
+                        <ard-editable-list-item ng-repeat="ligne in contact.atelier.adresse">
                             <ard-editable-text text="contact.atelier.adresse[$index]"> {{ligne}}</ard-editable-text>
                         </ard-editable-list-item>
                     </ard-editable-list>

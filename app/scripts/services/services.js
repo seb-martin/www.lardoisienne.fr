@@ -1,4 +1,4 @@
-/*global $:false, Firebase:false, FirebaseSimpleLogin:false */
+/*global $:false, Firebase:false*/
 /*http://stackoverflow.com/questions/8852765/jshint-strict-mode-and-jquery-is-not-defined*/
 'use strict';
 
@@ -6,39 +6,43 @@ angular.module('lardoisienneApp')
     .constant('firebaseContext', {location: 'https://lardoisienne.firebaseio.com'})
 
 
-    .factory('firebase', ['$firebase', 'firebaseContext', function($firebase, firebaseContext) {
-        var ref = new Firebase(firebaseContext.location);
-        return $firebase(ref);
+    .factory('firebaseRef', ['firebaseContext', function(firebaseContext) {
+        return new Firebase(firebaseContext.location);
     }])
 
 
-    .factory('AuthService', ['$rootScope', 'firebaseContext', function($rootScope, firebaseContext) {
-        var data = {
-            user: {},
-            login: function () {
-                delete this.loginFail;
-                auth.login('password', this.user);
-            },
-            logout: function() {
-                auth.logout();
-            }
-        };
+    .factory('AuthService', ['$rootScope', '$firebase', 'firebaseRef', function($rootScope, $firebase, firebaseRef) {
+        var data;
+        var authCallback;
+        var sync = $firebase(firebaseRef);
 
-        var auth = new FirebaseSimpleLogin(new Firebase(firebaseContext.location), function (error, user) {
+
+        authCallback = function (error, authData) {
             if (error) {
                 // an error occurred while attempting login
                 data.loginFail = error;
                 $rootScope.$broadcast('auth:loginFail', error);
-            } else if (user) {
+            } else if (authData) {
                 // user authenticated with Firebase
-                data.user = user;
-                $rootScope.$broadcast('auth:loginSuccess', user);
+                data.user = authData;
+                $rootScope.$broadcast('auth:loginSuccess', authData);
             } else {
                 // user is logged out
                 data.user = {};
                 $rootScope.$broadcast('auth:logout');
             }
-        });
+        };
+
+        data = {
+            user: {},
+            login: function () {
+                delete this.loginFail;
+                sync.authWithPassword(this.user, authCallback);
+            },
+            logout: function () {
+                sync.unauth();
+            }
+        };
 
         return  data;
     }])
