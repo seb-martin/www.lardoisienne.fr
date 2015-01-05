@@ -9,4 +9,4 @@ before_install:
 # Default Test Script : npm test (http://docs.travis-ci.com/user/languages/javascript-with-nodejs/#Default-Test-Script)
 
 after_success:
-    'npm deploy'
+    'npm run-script deploy'
