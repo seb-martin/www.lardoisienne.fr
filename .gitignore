@@ -2,5 +2,6 @@ www.lardoisienne.fr.iml
 node_modules
 dist
 .tmp
+.ftppass
 .sass-cache
 app/bower_components

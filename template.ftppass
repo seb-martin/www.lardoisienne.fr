@@ -1,0 +1,6 @@
+{
+    "<%= ftpserver.host %>": {
+        "username": "<%= ftpserver.ftppass.username %>",
+        "password": "<%= ftpserver.ftppass.password %>"
+    }
+}

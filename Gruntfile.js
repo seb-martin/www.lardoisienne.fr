@@ -10,6 +10,13 @@
 
 module.exports = function (grunt) {
 
+    // Configuration de l'accès au serveur FTP de déploiement
+    var ftp_host =      grunt.option('ftp-host') || process.env['FTP_HOST'] || 'localhost';
+    var ftp_port =      grunt.option('ftp-port') || process.env['FTP_PORT'] || 21;
+    var ftp_mode =      grunt.option('ftp-mode') || process.env['FTP_MODE'] || '';
+    var ftp_password =  grunt.option('ftp-password') || process.env['FTP_PASSWORD'] || '<YOUR_PASSWORD>';
+    var ftp_user =      grunt.option('ftp-user') || process.env['FTP_USER'] || '<YOUR_USER>';
+
     // Load grunt tasks automatically
     require('load-grunt-tasks')(grunt);
 
@@ -24,6 +31,17 @@ module.exports = function (grunt) {
             // configurable paths
             app: require('./bower.json').appPath || 'app',
             dist: 'dist'
+        },
+
+        // Deploy settings
+        ftpserver:{
+            host:ftp_host,
+            port:ftp_port,
+            passive: ftp_mode === 'passive',
+            ftppass: {
+                username: ftp_user,
+                password: ftp_password
+            }
         },
 
 
@@ -331,6 +349,15 @@ module.exports = function (grunt) {
                 cwd: '<%= yeoman.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            ftppass: {
+                src:'template.ftppass',
+                dest:'.ftppass',
+                options:{
+                    processContent: function(content) {
+                        return grunt.template.process(content);
+                    }
+                }
             }
         },
 
@@ -380,6 +407,20 @@ module.exports = function (grunt) {
             unit: {
                 configFile: 'karma.conf.js',
                 singleRun: true
+            }
+        },
+
+        // Deploy
+        ftpscript: {
+            upload: {
+                options: {
+                    host: grunt.config(['ftpserver', 'host']),
+                    port: grunt.config(['ftpserver', 'port']),
+                    passive: grunt.config(['ftpserver', 'passive'])
+                },
+                files: [
+                    { src: 'dist/**/*', dest: '/www' }
+                ]
             }
         }
     });
@@ -431,10 +472,17 @@ module.exports = function (grunt) {
         'htmlmin'
     ]);
 
+    grunt.registerTask('deploy', [
+        'build',
+        'copy:ftppass',
+        'ftpscript'
+    ]);
+
     grunt.registerTask('default', [
         'newer:jshint',
         'test',
         'build'
     ]);
+
 
 };
